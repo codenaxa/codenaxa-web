@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "codenaxa",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

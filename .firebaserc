@@ -1,0 +1,13 @@
+{
+  "projects": {},
+  "targets": {
+    "codenaxa": {
+      "hosting": {
+        "codenaxa-redirect": [
+          "codenaxa"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
