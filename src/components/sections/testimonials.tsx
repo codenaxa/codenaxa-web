@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
                             sx={{
                                 fontWeight: 800,
                                 mb: 3,
-                                fontSize: { xs: '2.25rem', md: '3.5rem' },
+                                fontSize: { xs: '2rem', sm: '2.25rem', md: '3.5rem' },
                                 fontFamily: 'Satoshi, sans-serif'
                             }}
                         >

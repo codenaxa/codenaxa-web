@@ -100,6 +100,7 @@ export default function Header() {
                 src="/logo.png"
                 alt="Codenaxa"
                 fill
+                sizes="36px"
                 className="object-contain"
               />
             </Box>

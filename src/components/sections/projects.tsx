@@ -73,9 +73,9 @@ export default function ProjectsSection() {
                                     variant="h2"
                                     sx={{
                                         fontWeight: 800,
-                                        fontSize: { xs: '2.5rem', md: '3.5rem' },
+                                        fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
                                         fontFamily: 'Satoshi, sans-serif',
-                                        lineHeight: 1.1
+                                        lineHeight: { xs: 1.2, md: 1.1 }
                                     }}
                                 >
                                     Engineered <Box component="span" sx={{ color: alpha(muiTheme.palette.text.primary, 0.4) }}>Web Systems</Box> Deployment.
@@ -147,6 +147,7 @@ export default function ProjectsSection() {
                                                 src={project.image}
                                                 alt={project.title}
                                                 fill
+                                                sizes="(max-width: 900px) 100vw, 50vw"
                                                 className="object-cover"
                                             />
                                             <Box sx={{

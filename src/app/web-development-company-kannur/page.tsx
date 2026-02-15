@@ -26,7 +26,7 @@ export default function KannurPage() {
                         variant="h1"
                         sx={{
                             fontWeight: 800,
-                            fontSize: { xs: "2.5rem", md: "3.5rem" },
+                            fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" },
                             mb: 4,
                             fontFamily: "Satoshi, sans-serif",
                             lineHeight: 1.1

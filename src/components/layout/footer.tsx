@@ -37,7 +37,7 @@ export default function Footer() {
           <Grid size={{ xs: 12, lg: 5 }}>
             <Link href="/" className="flex items-center gap-3 no-underline mb-6">
               <Box sx={{ position: 'relative', width: 40, height: 40 }}>
-                <Image src="/logo.png" alt="Codenaxa" fill className="object-contain" />
+                <Image src="/logo.png" alt="Codenaxa" fill sizes="40px" className="object-contain" />
               </Box>
               <span className="text-2xl font-bold font-satoshi">codenaxa</span>
             </Link>

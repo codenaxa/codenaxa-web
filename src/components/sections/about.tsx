@@ -72,7 +72,7 @@ export default function AboutSection() {
                 variant="h2"
                 sx={{
                   fontWeight: 800,
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
                   fontFamily: 'Satoshi, sans-serif',
                   lineHeight: 1.1,
                   mb: 4

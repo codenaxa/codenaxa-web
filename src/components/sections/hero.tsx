@@ -85,7 +85,7 @@ export default function HeroSection() {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem', lg: '4.5rem' },
                   fontWeight: 800,
                   lineHeight: { xs: 1.2, md: 1.1 },
                   mb: 3,
@@ -177,6 +177,7 @@ export default function HeroSection() {
                   src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2670&auto=format&fit=crop"
                   alt="Engineered Web Architecture Illustration"
                   fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 hover:scale-110"
                   priority
                 />
