@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
     try {
         const body = await req.json();
         const { name, email, message } = body;
 
-        console.log('Received contact form submission:', { name, email, message });
+
 
         if (!name || !email || !message) {
             return NextResponse.json(
@@ -16,32 +17,11 @@ export async function POST(req: Request) {
             );
         }
 
-        // Configure the Zoho Transporter with explicit typing to avoid "No overload matches this call"
-        const transportOptions: SMTPTransport.Options = {
-            host: process.env.SMTP_HOST || 'smtp.zoho.in',
-            port: parseInt(process.env.SMTP_PORT || '465'),
-            secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : parseInt(process.env.SMTP_PORT || '465') === 465,
-            auth: {
-                user: process.env.ZOHO_USER || 'contact@codenaxa.in',
-                pass: process.env.ZOHO_PASSWORD,
-            },
-        };
-
-        const transporter = nodemailer.createTransport(transportOptions);
-
-        const mailOptions = {
-            from: `"codenaxa Contact Form" <${process.env.ZOHO_USER || 'contact@codenaxa.in'}>`,
-            to: 'contact@codenaxa.in',
+        const { data, error } = await resend.emails.send({
+            from: 'Codenaxa Contact Form <contact@codenaxa.in>',
+            to: ['contact@codenaxa.in'],
             replyTo: email,
             subject: `New Project Inquiry from ${name}`,
-            text: `
-Name: ${name}
-Email: ${email}
-Date: ${new Date().toLocaleString()}
-
-Message:
-${message}
-      `,
             html: `
         <div style="font-family: sans-serif; line-height: 1.6; color: #333;">
           <h2 style="color: #6366f1;">New Project Inquiry</h2>
@@ -53,15 +33,21 @@ ${message}
           <p style="white-space: pre-wrap;">${message}</p>
         </div>
       `,
-        };
+        });
 
-        await transporter.sendMail(mailOptions);
+        if (error) {
+            console.error('Resend Error:', error);
+            return NextResponse.json(
+                { error: 'Failed to send email via Resend.' },
+                { status: 500 }
+            );
+        }
 
-        return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+        return NextResponse.json({ message: 'Email sent successfully', data }, { status: 200 });
     } catch (error: any) {
-        console.error('Nodemailer Error:', error);
+        console.error('API Error:', error);
         return NextResponse.json(
-            { error: 'Failed to send email. ' + (error.message || '') },
+            { error: 'Failed to process request. ' + (error.message || '') },
             { status: 500 }
         );
     }
