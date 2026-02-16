@@ -1,10 +1,6 @@
-"use client";
-
-import Link from 'next/link';
-import { Button } from '@mui/material';
-import { Home } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import BackToHomeButton from './_components/back-to-home-button';
 
 export const metadata = {
     title: 'Page Not Found | codenaxa',
@@ -21,21 +17,7 @@ export default function NotFound() {
                 <p className="text-gray-500 mb-8 max-w-md">
                     The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
                 </p>
-                <Button
-                    variant="contained"
-                    component={Link}
-                    href="/"
-                    startIcon={<Home size={20} />}
-                    sx={{
-                        px: 4,
-                        py: 1.5,
-                        borderRadius: 3,
-                        fontWeight: 700,
-                        textTransform: 'none'
-                    }}
-                >
-                    Back to Home
-                </Button>
+                <BackToHomeButton />
             </main>
             <Footer />
         </div>
