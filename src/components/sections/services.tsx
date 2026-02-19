@@ -8,46 +8,52 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { motion } from "framer-motion";
-import { Globe, Layout, Zap, Smartphone, Search, Shield, Database, Server } from "lucide-react";
+import { Globe, Database, Zap, Smartphone, Server, Shield } from "lucide-react";
 import { useTheme as useMuiTheme, alpha } from "@mui/material";
 
 const services = [
   {
-    icon: <Globe size={32} />,
-    title: "RESTful API Architecture",
-    description: "Designing and engineering scalable API systems with robust endpoints, rate limiting, and comprehensive documentation for seamless integration.",
-    benefits: ["Microservices Approach", "Secure Endpoints", "Performance Optimization"],
+    icon: <Globe size={28} />,
+    title: "Custom Web Application Development",
+    description:
+      "End-to-end development of modern web applications using React, Next.js, Node.js, or Django - built for performance and scalability.",
+    benefits: ["Frontend + Backend Development", "Clean Architecture", "Production Deployment"],
   },
   {
-    icon: <Database size={32} />,
-    title: "Database Optimization",
-    description: "Architecting efficient database schemas and implementing advanced indexing strategies to ensure rapid data retrieval and storage scalability.",
-    benefits: ["Relational & NoSQL", "Query Optimization", "Data Integrity"],
+    icon: <Server size={28} />,
+    title: "SaaS & Product Development",
+    description:
+      "Build and launch scalable SaaS platforms with secure authentication, subscription logic, and API integrations.",
+    benefits: ["Authentication & Authorization", "API Integrations", "Scalable Backend Systems"],
   },
   {
-    icon: <Zap size={32} />,
-    title: "Performance Engineering",
-    description: "Systematic performance tuning targeting low-latency interactions, optimized asset delivery, and adherence to Core Web Vitals standards.",
-    benefits: ["Latency Reduction", "Resource Management", "Caching Strategies"],
+    icon: <Database size={28} />,
+    title: "Backend & API Development",
+    description:
+      "Secure and optimized backend systems with well-structured APIs, database design, and performance tuning.",
+    benefits: ["REST APIs", "Database Optimization", "Secure Data Handling"],
   },
   {
-    icon: <Smartphone size={32} />,
-    title: "Progressive Web Apps",
-    description: "Engineering high-performance web applications with offline capabilities, background synchronization, and native-level system integration.",
-    benefits: ["Service Worker Logic", "Local Caching", "Responsive Architecture"],
+    icon: <Zap size={28} />,
+    title: "Performance Optimization",
+    description:
+      "Improve loading speed, Core Web Vitals, and system efficiency for better user experience and search rankings.",
+    benefits: ["Speed Optimization", "Code Refactoring", "Caching Strategies"],
   },
   {
-    icon: <Search size={32} />,
-    title: "Technical SEO Implementation",
-    description: "Implementing advanced SEO protocols including schema markup, semantic HTML structure, and server-side rendering for maximum crawlability.",
-    benefits: ["Schema Integration", "SSR/ISR Optimization", "Metadata Management"],
+    icon: <Smartphone size={28} />,
+    title: "Responsive & PWA Development",
+    description:
+      "Mobile-first web systems with offline capability and seamless cross-device experience.",
+    benefits: ["Mobile Optimization", "Service Workers", "Offline Functionality"],
   },
   {
-    icon: <Shield size={32} />,
-    title: "Authentication Systems",
-    description: "Developing secure authentication and authorization layers using modern protocols, focusing on data encryption and identity management.",
-    benefits: ["OAuth & JWT Protocols", "Encryption Standards", "Secure Session Flow"],
-  }
+    icon: <Shield size={28} />,
+    title: "Security & System Hardening",
+    description:
+      "Implementation of secure authentication, encryption standards, and protection against common vulnerabilities.",
+    benefits: ["JWT / OAuth", "Secure Sessions", "Data Encryption"],
+  },
 ];
 
 export default function ServicesSection() {
@@ -59,13 +65,16 @@ export default function ServicesSection() {
       component="section"
       sx={{
         py: { xs: 12, md: 16 },
-        bgcolor: muiTheme.palette.mode === 'light' ? 'rgba(248, 250, 252, 0.5)' : alpha(muiTheme.palette.background.paper, 0.2),
+        bgcolor:
+          muiTheme.palette.mode === "light"
+            ? "rgba(248, 250, 252, 0.6)"
+            : alpha(muiTheme.palette.background.paper, 0.2),
         borderTop: `1px solid ${muiTheme.palette.divider}`,
         borderBottom: `1px solid ${muiTheme.palette.divider}`,
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ mb: { xs: 8, md: 12 }, textAlign: 'center' }}>
+        <Box sx={{ mb: { xs: 8, md: 12 }, textAlign: "center" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,37 +85,39 @@ export default function ServicesSection() {
               variant="caption"
               sx={{
                 fontWeight: 800,
-                color: 'secondary.main',
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                display: 'block',
-                mb: 2.5
+                color: "secondary.main",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                display: "block",
+                mb: 2.5,
               }}
             >
-              Technical Infrastructure
+              Services
             </Typography>
+
             <Typography
               variant="h2"
               sx={{
                 fontWeight: 800,
                 mb: 3,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
-                fontFamily: 'Satoshi, sans-serif'
+                fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
               }}
             >
-              Scalable <Box component="span" sx={{ color: alpha(muiTheme.palette.text.primary, 0.5) }}>System Engineering</Box>
+              What I Can Build For You
             </Typography>
+
             <Typography
               variant="body1"
               sx={{
-                color: 'text.secondary',
-                maxWidth: 650,
-                mx: 'auto',
-                fontSize: { xs: '1rem', md: '1.2rem' },
-                lineHeight: 1.8
+                color: "text.secondary",
+                maxWidth: 700,
+                mx: "auto",
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                lineHeight: 1.8,
               }}
             >
-              We prioritize architectural integrity and technical depth across every project. Our engineering processes are designed to deliver secure, scalable, and high-performance web systems.
+              I design and develop scalable web systems for startups and businesses. Every project is built with
+              production-ready architecture, security, and long-term maintainability in mind.
             </Typography>
           </motion.div>
         </Box>
@@ -115,94 +126,70 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={index}>
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card
                   sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    p: { xs: 2, md: 3 },
-                    backgroundColor: 'background.paper',
-                    borderRadius: 6,
+                    height: "100%",
+                    borderRadius: 4,
                     border: `1px solid ${muiTheme.palette.divider}`,
-                    boxShadow: 'none',
-                    backgroundImage: 'none',
-                    '&:hover': {
-                      transform: 'translateY(-12px)',
-                      boxShadow: muiTheme.palette.mode === 'light'
-                        ? '0 30px 60px -12px rgba(0,0,0,0.08)'
-                        : '0 30px 60px -12px rgba(0,0,0,0.5)',
-                      borderColor: 'secondary.main',
-                      '& .service-icon-box': {
-                        color: 'white',
-                        bgcolor: 'secondary.main',
-                        transform: 'rotate(5deg)'
-                      }
+                    boxShadow: "none",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      borderColor: "secondary.main",
                     },
-                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
                   }}
                 >
                   <CardContent sx={{ p: 4 }}>
                     <Box
-                      className="service-icon-box"
                       sx={{
-                        width: 64,
-                        height: 64,
-                        borderRadius: 3.5,
-                        bgcolor: alpha(muiTheme.palette.secondary.main, 0.08),
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 5,
-                        transition: 'all 0.4s ease',
-                        color: 'secondary.main'
+                        width: 54,
+                        height: 54,
+                        borderRadius: 2,
+                        bgcolor: alpha(muiTheme.palette.secondary.main, 0.1),
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mb: 3,
+                        color: "secondary.main",
                       }}
                     >
                       {service.icon}
                     </Box>
 
-                    <Typography
-                      variant="h4"
-                      sx={{
-                        fontWeight: 800,
-                        mb: 2.5,
-                        fontSize: '1.75rem',
-                        fontFamily: 'Satoshi, sans-serif',
-                        letterSpacing: '-0.02em'
-                      }}
-                    >
+                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                       {service.title}
                     </Typography>
 
                     <Typography
                       variant="body2"
                       sx={{
-                        color: 'text.secondary',
-                        mb: 5,
-                        lineHeight: 1.8,
-                        fontSize: '1.05rem',
-                        fontWeight: 500
+                        color: "text.secondary",
+                        mb: 3,
+                        lineHeight: 1.7,
                       }}
                     >
                       {service.description}
                     </Typography>
 
-                    <Box sx={{ mt: 'auto', pt: 3, borderTop: `1px solid ${alpha(muiTheme.palette.divider, 0.8)}` }}>
+                    <Box component="ul" sx={{ m: 0, pl: 2.5 }}>
                       {service.benefits.map((benefit, i) => (
-                        <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1.5 }}>
-                          <Box sx={{
-                            width: 8,
-                            height: 8,
-                            borderRadius: '2px',
-                            bgcolor: 'secondary.main',
-                            transform: 'rotate(45deg)'
-                          }} />
-                          <Typography variant="body2" sx={{ fontWeight: 700, fontSize: '0.95rem', color: 'text.primary' }}>{benefit}</Typography>
-                        </Box>
+                        <Typography
+                          key={i}
+                          component="li"
+                          variant="body2"
+                          sx={{
+                            fontWeight: 600,
+                            fontSize: "0.9rem",
+                            mb: 1,
+                          }}
+                        >
+                          {benefit}
+                        </Typography>
                       ))}
                     </Box>
                   </CardContent>

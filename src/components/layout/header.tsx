@@ -110,12 +110,17 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 5 }}>
+          <Box
+            component="nav"
+            aria-label="Primary"
+            sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 5 }}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.id}
                 href={link.href}
                 className="no-underline"
+                aria-current={isLinkActive(link.href, link.id) ? "page" : undefined}
               >
                 <span className={cn(
                   "text-[15px] font-semibold transition-all duration-200 relative py-1",
@@ -167,7 +172,7 @@ export default function Header() {
             <ThemeToggle />
             <IconButton
               color="inherit"
-              aria-label="open drawer"
+              aria-label="Open navigation menu"
               onClick={handleDrawerToggle}
               sx={{ ml: 1 }}
             >
@@ -195,17 +200,18 @@ export default function Header() {
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
           <span className="text-xl font-bold font-satoshi">codenaxa</span>
-          <IconButton onClick={handleDrawerToggle} color="inherit">
+          <IconButton onClick={handleDrawerToggle} color="inherit" aria-label="Close navigation menu">
             <X size={24} />
           </IconButton>
         </Box>
-        <List sx={{ mb: 4 }}>
+        <List component="nav" aria-label="Mobile primary" sx={{ mb: 4 }}>
           {navLinks.map((link) => (
             <ListItem key={link.id} disablePadding sx={{ mb: 1 }}>
               <ListItemButton
                 component={Link}
                 href={link.href}
                 onClick={handleDrawerToggle}
+                aria-current={isLinkActive(link.href, link.id) ? "page" : undefined}
                 sx={{
                   borderRadius: 2,
                   backgroundColor: isLinkActive(link.href, link.id) ? alpha(muiTheme.palette.primary.main, 0.05) : 'transparent',

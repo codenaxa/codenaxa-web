@@ -28,25 +28,22 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem(storageKey) as Theme;
-    if (savedTheme) {
+    const savedTheme = localStorage.getItem(storageKey) as Theme | null;
+    if (savedTheme === "light" || savedTheme === "dark") {
       setThemeState(savedTheme);
     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setThemeState("dark");
     }
-    setMounted(true);
   }, [storageKey]);
 
   useEffect(() => {
-    if (!mounted) return;
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
     localStorage.setItem(storageKey, theme);
-  }, [theme, mounted, storageKey]);
+  }, [theme, storageKey]);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
@@ -62,18 +59,13 @@ export function ThemeProvider({
     toggleTheme,
   };
 
-  // Prevent hydration mismatch by only rendering MUI provider after mount
   const currentTheme = theme === "dark" ? darkTheme : lightTheme;
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
       <MuiThemeProvider theme={currentTheme}>
-        {mounted && (
-          <>
-            <CssBaseline />
-            {children}
-          </>
-        )}
+        <CssBaseline />
+        {children}
       </MuiThemeProvider>
     </ThemeProviderContext.Provider>
   );

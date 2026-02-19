@@ -13,23 +13,27 @@ import { useTheme as useMuiTheme, alpha } from "@mui/material";
 const keyPoints = [
   {
     icon: <Code size={24} />,
-    title: "Structured Standards",
-    description: "We implement rigorous development protocols to ensure codebase consistency and long-term system maintainability across all web applications.",
+    title: "Clean & Maintainable Code",
+    description:
+      "Every project is built with structured architecture and readable code practices, making future updates and scaling straightforward.",
   },
   {
     icon: <ShieldCheck size={24} />,
-    title: "Security Architecture",
-    description: "Integrated security protocols from the architectural level, focusing on data encryption, secure authentication, and robust authorization systems.",
+    title: "Security-First Development",
+    description:
+      "Authentication, data protection, and secure backend practices are integrated from the beginning - not added later.",
   },
   {
     icon: <Zap size={24} />,
-    title: "Performance Optimization",
-    description: "Systematic performance engineering targeting low-latency interactions, optimized asset delivery, and efficient resource utilization.",
+    title: "Performance Optimized",
+    description:
+      "Fast-loading interfaces, optimized APIs, and efficient database design ensure smooth user experience at scale.",
   },
   {
     icon: <Layout size={24} />,
     title: "Scalable System Design",
-    description: "Architecture-driven development focused on modularity and scalability, ensuring systems can handle increased load and complexity.",
+    description:
+      "Applications are structured to handle increasing traffic, feature expansion, and long-term business growth.",
   },
 ];
 
@@ -42,8 +46,8 @@ export default function AboutSection() {
       component="section"
       sx={{
         py: { xs: 12, md: 16 },
-        position: 'relative',
-        background: muiTheme.palette.mode === 'light' ? 'white' : 'transparent'
+        position: "relative",
+        background: muiTheme.palette.mode === "light" ? "white" : "transparent",
       }}
     >
       <Container maxWidth="lg">
@@ -59,49 +63,58 @@ export default function AboutSection() {
                 variant="caption"
                 sx={{
                   fontWeight: 800,
-                  color: 'secondary.main',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.2em',
-                  display: 'block',
-                  mb: 3
+                  color: "secondary.main",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.2em",
+                  display: "block",
+                  mb: 3,
                 }}
               >
-                Engineering Excellence
+                About Codenaxa
               </Typography>
+
               <Typography
                 variant="h2"
                 sx={{
                   fontWeight: 800,
-                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
-                  fontFamily: 'Satoshi, sans-serif',
-                  lineHeight: 1.1,
-                  mb: 4
+                  fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+                  lineHeight: 1.2,
+                  mb: 4,
                 }}
               >
-                Architecture-Driven <Box component="span" sx={{ color: alpha(muiTheme.palette.text.primary, 0.4) }}>Engineering</Box> Standards.
+                A Registered MSME Technology Brand Operated by a{" "}
+                <Box component="span" sx={{ color: "secondary.main" }}>
+                  Freelance Full-Stack Developer
+                </Box>
               </Typography>
+
               <Typography
                 variant="body1"
                 sx={{
-                  color: 'text.secondary',
-                  fontSize: '1.125rem',
+                  color: "text.secondary",
+                  fontSize: "1.1rem",
                   lineHeight: 1.8,
                   mb: 3,
-                  fontWeight: 500
+                  fontWeight: 500,
                 }}
               >
-                We operate with modern engineering standards and production-level development practices. Our methodology focuses on building secure, high-performance web systems that support long-term business growth.
+                I build modern web applications, SaaS platforms, and backend systems for startups and growing
+                businesses. Every project is personally handled - from architecture planning to deployment - ensuring
+                technical precision and accountability.
               </Typography>
+
               <Typography
                 variant="body1"
                 sx={{
-                  color: 'text.secondary',
-                  fontSize: '1.125rem',
+                  color: "text.secondary",
+                  fontSize: "1.1rem",
                   lineHeight: 1.8,
-                  fontWeight: 500
+                  fontWeight: 500,
                 }}
               >
-                Every project is executed with a focus on clean, maintainable codebase strategies and system maintainability. We prioritize technical precision over generic solutions to deliver measurable architectural value.
+                Codenaxa is officially registered as an MSME business in India, providing structured agreements, GST
+                invoicing, and transparent project execution - combining freelancer flexibility with professional
+                reliability.
               </Typography>
             </motion.div>
           </Grid>
@@ -118,54 +131,50 @@ export default function AboutSection() {
                   >
                     <Card
                       sx={{
-                        p: 4.5,
-                        height: '100%',
+                        p: 4,
+                        height: "100%",
                         border: `1px solid ${muiTheme.palette.divider}`,
-                        boxShadow: 'none',
+                        boxShadow: "none",
                         backgroundColor: alpha(muiTheme.palette.background.paper, 0.5),
-                        backgroundImage: 'none',
-                        borderRadius: 5,
-                        '&:hover': {
-                          borderColor: 'secondary.main',
-                          boxShadow: muiTheme.palette.mode === 'light'
-                            ? '0 25px 50px -12px rgba(0,0,0,0.06)'
-                            : '0 25px 50px -12px rgba(0,0,0,0.4)',
-                          transform: 'translateY(-4px)'
+                        borderRadius: 4,
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          borderColor: "secondary.main",
+                          transform: "translateY(-4px)",
                         },
-                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
                       }}
                     >
-                      <Box sx={{
-                        width: 52,
-                        height: 52,
-                        borderRadius: 2.5,
-                        bgcolor: alpha(muiTheme.palette.secondary.main, 0.1),
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 4,
-                        color: 'secondary.main'
-                      }}>
+                      <Box
+                        sx={{
+                          width: 50,
+                          height: 50,
+                          borderRadius: 2,
+                          bgcolor: alpha(muiTheme.palette.secondary.main, 0.1),
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          mb: 3,
+                          color: "secondary.main",
+                        }}
+                      >
                         {point.icon}
                       </Box>
+
                       <Typography
-                        variant="h5"
+                        variant="h6"
                         sx={{
-                          fontWeight: 800,
-                          mb: 2,
-                          fontFamily: 'Satoshi',
-                          fontSize: '1.25rem'
+                          fontWeight: 700,
+                          mb: 1.5,
                         }}
                       >
                         {point.title}
                       </Typography>
+
                       <Typography
                         variant="body2"
                         color="text.secondary"
                         sx={{
-                          fontWeight: 500,
                           lineHeight: 1.7,
-                          fontSize: '0.95rem'
                         }}
                       >
                         {point.description}
