@@ -10,34 +10,34 @@ import FAQSection from '@/components/sections/faq';
 import ContactSection from '@/components/sections/contact';
 
 export const metadata: Metadata = {
-  title: 'Web Development Company in Kannur',
+  title: 'Freelance Full Stack Developer in Kannur',
   description:
-    'codenaxa builds scalable web applications, SaaS platforms, and backend systems for startups and businesses across Kannur, Kerala, and India.',
+    'codenaxa – MSME-registered freelance full stack developer building scalable web applications, SaaS platforms, and backend systems for startups and businesses across Kannur, Kerala, and India.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Web Development Company in Kannur | codenaxa',
+    title: 'Freelance Full Stack Developer in Kannur | codenaxa',
     description:
-      'Scalable web applications, SaaS platforms, and backend systems designed for long-term growth.',
+      'MSME-registered freelance developer building scalable web applications, SaaS platforms, and backend systems for long-term growth.',
     url: '/',
     siteName: 'codenaxa',
     type: 'website',
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'codenaxa web development services',
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'codenaxa logo',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Web Development Company in Kannur | codenaxa',
+    card: 'summary',
+    title: 'Freelance Full Stack Developer in Kannur | codenaxa',
     description:
-      'Scalable web applications, SaaS platforms, and backend systems designed for long-term growth.',
-    images: ['/og-image.png'],
+      'MSME-registered freelance developer building scalable web applications, SaaS platforms, and backend systems for long-term growth.',
+    images: ['/logo.png'],
   },
 };
 

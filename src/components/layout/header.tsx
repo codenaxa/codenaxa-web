@@ -176,7 +176,7 @@ export default function Header() {
               onClick={handleDrawerToggle}
               sx={{ ml: 1 }}
             >
-              <Menu size={24} />
+              <Menu size={24} aria-hidden="true" />
             </IconButton>
           </Box>
         </Toolbar>
@@ -201,7 +201,7 @@ export default function Header() {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
           <span className="text-xl font-bold font-satoshi">codenaxa</span>
           <IconButton onClick={handleDrawerToggle} color="inherit" aria-label="Close navigation menu">
-            <X size={24} />
+            <X size={24} aria-hidden="true" />
           </IconButton>
         </Box>
         <List component="nav" aria-label="Mobile primary" sx={{ mb: 4 }}>

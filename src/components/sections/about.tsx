@@ -12,25 +12,25 @@ import { useTheme as useMuiTheme, alpha } from "@mui/material";
 
 const keyPoints = [
   {
-    icon: <Code size={24} />,
+    icon: <Code size={24} aria-hidden="true" />,
     title: "Clean & Maintainable Code",
     description:
       "Every project is built with structured architecture and readable code practices, making future updates and scaling straightforward.",
   },
   {
-    icon: <ShieldCheck size={24} />,
+    icon: <ShieldCheck size={24} aria-hidden="true" />,
     title: "Security-First Development",
     description:
       "Authentication, data protection, and secure backend practices are integrated from the beginning - not added later.",
   },
   {
-    icon: <Zap size={24} />,
+    icon: <Zap size={24} aria-hidden="true" />,
     title: "Performance Optimized",
     description:
       "Fast-loading interfaces, optimized APIs, and efficient database design ensure smooth user experience at scale.",
   },
   {
-    icon: <Layout size={24} />,
+    icon: <Layout size={24} aria-hidden="true" />,
     title: "Scalable System Design",
     description:
       "Applications are structured to handle increasing traffic, feature expansion, and long-term business growth.",
@@ -44,6 +44,7 @@ export default function AboutSection() {
     <Box
       id="about"
       component="section"
+      aria-labelledby="about-heading"
       sx={{
         py: { xs: 12, md: 16 },
         position: "relative",
@@ -75,6 +76,7 @@ export default function AboutSection() {
 
               <Typography
                 variant="h2"
+                id="about-heading"
                 sx={{
                   fontWeight: 800,
                   fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },

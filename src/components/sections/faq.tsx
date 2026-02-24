@@ -45,6 +45,7 @@ export default function FAQSection() {
     <Box
       id="faq"
       component="section"
+      aria-labelledby="faq-heading"
       sx={{
         py: { xs: 12, md: 16 },
         bgcolor: "background.default",
@@ -61,6 +62,7 @@ export default function FAQSection() {
           >
             <Typography
               variant="h2"
+              id="faq-heading"
               sx={{
                 fontWeight: 800,
                 mb: 3,

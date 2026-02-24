@@ -1,0 +1,40 @@
+{
+    "name": "codenaxa - Freelance Full Stack Developer",
+    "short_name": "codenaxa",
+    "description": "MSME-registered freelance full stack developer building scalable web applications, SaaS platforms, and backend systems.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#6366f1",
+    "orientation": "portrait-primary",
+    "lang": "en-IN",
+    "categories": [
+        "business",
+        "technology"
+    ],
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "180x180",
+            "purpose": "any"
+        },
+        {
+            "src": "/logo.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "/logo.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
+}

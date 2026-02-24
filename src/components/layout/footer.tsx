@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme as useMuiTheme, alpha } from "@mui/material";
@@ -16,10 +16,11 @@ export default function Footer() {
   const muiTheme = useMuiTheme();
 
   const socialLinks = [
-    { icon: <Github size={20} />, href: "https://github.com/codenaxa", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/codenaxa", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://instagram.com/codenaxa", label: "Instagram" },
-    { icon: <Twitter size={20} />, href: "https://x.com/codenaxa", label: "X" },
+    { icon: <MessageCircle size={20} aria-hidden="true" />, href: "https://wa.me/918281657534", label: "WhatsApp" },
+    { icon: <Github size={20} aria-hidden="true" />, href: "https://github.com/codenaxa", label: "GitHub" },
+    { icon: <Linkedin size={20} aria-hidden="true" />, href: "https://linkedin.com/in/codenaxa", label: "LinkedIn" },
+    { icon: <Instagram size={20} aria-hidden="true" />, href: "https://instagram.com/codenaxa", label: "Instagram" },
+    { icon: <Twitter size={20} aria-hidden="true" />, href: "https://x.com/codenaxa", label: "X (Twitter)" },
   ];
 
   return (
@@ -154,7 +155,7 @@ export default function Footer() {
           </Typography>
 
           <Typography variant="body2" color="text.secondary">
-             {currentYear} codenaxa. All rights reserved.
+            {currentYear} codenaxa. All rights reserved.
           </Typography>
         </Box>
       </Container>

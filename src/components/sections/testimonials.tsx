@@ -30,6 +30,7 @@ export default function TestimonialsSection() {
     <Box
       id="reviews"
       component="section"
+      aria-labelledby="reviews-heading"
       sx={{
         py: { xs: 12, md: 16 },
         bgcolor:
@@ -62,6 +63,7 @@ export default function TestimonialsSection() {
 
             <Typography
               variant="h2"
+              id="reviews-heading"
               sx={{
                 fontWeight: 800,
                 mb: 3,
@@ -111,7 +113,7 @@ export default function TestimonialsSection() {
                     },
                   }}
                 >
-                  <Box sx={{ display: "flex", gap: 0.5, mb: 2 }} aria-label={`${testimonial.stars} out of 5 stars`}>
+                  <Box sx={{ display: "flex", gap: 0.5, mb: 2 }} role="img" aria-label={`${testimonial.stars} out of 5 stars`}>
                     {[...Array(testimonial.stars)].map((_, i) => (
                       <Star key={i} size={18} fill="#FFB400" color="#FFB400" aria-hidden="true" />
                     ))}
@@ -161,7 +163,7 @@ export default function TestimonialsSection() {
             }}
           >
             <span>View all reviews on Google</span>
-            <ExternalLink size={14} />
+            <ExternalLink size={14} aria-hidden="true" />
           </a>
         </Box>
       </Container>

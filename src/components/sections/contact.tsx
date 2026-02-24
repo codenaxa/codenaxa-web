@@ -72,16 +72,18 @@ export default function ContactSection() {
   }
 
   const socialLinks = [
-    { icon: <Github size={20} />, href: "https://github.com/codenaxa", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/codenaxa", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://instagram.com/codenaxa", label: "Instagram" },
-    { icon: <Twitter size={20} />, href: "https://x.com/codenaxa", label: "X" },
+    { icon: <MessageCircle size={20} aria-hidden="true" />, href: "https://wa.me/918281657534", label: "WhatsApp" },
+    { icon: <Github size={20} aria-hidden="true" />, href: "https://github.com/codenaxa", label: "GitHub" },
+    { icon: <Linkedin size={20} aria-hidden="true" />, href: "https://linkedin.com/in/codenaxa", label: "LinkedIn" },
+    { icon: <Instagram size={20} aria-hidden="true" />, href: "https://instagram.com/codenaxa", label: "Instagram" },
+    { icon: <Twitter size={20} aria-hidden="true" />, href: "https://x.com/codenaxa", label: "X (Twitter)" },
   ];
 
   return (
     <Box
       id="contact"
       component="section"
+      aria-labelledby="contact-heading"
       sx={{
         py: { xs: 12, md: 16 },
         borderTop: `1px solid ${muiTheme.palette.divider}`,
@@ -98,6 +100,7 @@ export default function ContactSection() {
             >
               <Typography
                 variant="h2"
+                id="contact-heading"
                 sx={{
                   fontWeight: 800,
                   mb: 3,
@@ -116,7 +119,22 @@ export default function ContactSection() {
                   mb: 5,
                 }}
               >
-                Message me directly on WhatsApp for a quick discussion, or submit your project details using the form.
+                Message me directly on{" "}
+                <Box
+                  component="a"
+                  href="https://wa.me/918281657534"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: "primary.main",
+                    textDecoration: "none",
+                    fontWeight: 700,
+                    "&:hover": { textDecoration: "underline" },
+                  }}
+                >
+                  WhatsApp
+                </Box>{" "}
+                for a quick discussion, or submit your project details using the form.
                 I personally review every inquiry.
               </Typography>
 
@@ -134,9 +152,10 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     aria-label={link.label}
                     sx={{
-                      bgcolor: alpha(muiTheme.palette.text.primary, 0.05),
+                      bgcolor: link.label === "WhatsApp" ? alpha("#25D366", 0.1) : alpha(muiTheme.palette.text.primary, 0.05),
+                      color: link.label === "WhatsApp" ? "#25D366" : "inherit",
                       "&:hover": {
-                        bgcolor: muiTheme.palette.primary.main,
+                        bgcolor: link.label === "WhatsApp" ? "#25D366" : muiTheme.palette.primary.main,
                         color: "white",
                       },
                     }}

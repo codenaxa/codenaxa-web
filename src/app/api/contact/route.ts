@@ -44,10 +44,11 @@ export async function POST(req: Request) {
         }
 
         return NextResponse.json({ message: 'Email sent successfully', data }, { status: 200 });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error('API Error:', error);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         return NextResponse.json(
-            { error: 'Failed to process request. ' + (error.message || '') },
+            { error: 'Failed to process request. ' + errorMessage },
             { status: 500 }
         );
     }

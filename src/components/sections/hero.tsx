@@ -11,19 +11,24 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme as useMuiTheme, alpha } from "@mui/material";
+import dynamic from "next/dynamic";
+
+const Hero3D = dynamic(() => import("./hero-3d"), {
+  ssr: false,
+  loading: () => <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.03)", borderRadius: "24px" }} />
+});
 
 export default function HeroSection() {
   const muiTheme = useMuiTheme();
 
   const whatsappLink =
-    "https://wa.me/91YOURNUMBER?text=Hi%20I%20am%20interested%20in%20building%20a%20web%20project.%20Here%20are%20my%20requirements:%0A1.%20%0A2.%20%0A3.%20";
-  const heroImageUrl =
-    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80";
+    "https://wa.me/918281657534?text=Hi%20I%20am%20interested%20in%20building%20a%20web%20project.%20Here%20are%20my%20requirements:%0A1.%20%0A2.%20%0A3.%20";
 
   return (
     <Box
       id="home"
       component="section"
+      aria-labelledby="hero-heading"
       sx={{
         position: "relative",
         minHeight: "100vh",
@@ -74,6 +79,7 @@ export default function HeroSection() {
 
               <Typography
                 variant="h1"
+                id="hero-heading"
                 sx={{
                   fontSize: {
                     xs: "2rem",
@@ -141,17 +147,24 @@ export default function HeroSection() {
                 <Button
                   variant="contained"
                   size="large"
-                  component="a"
-                  href="mailto:contact@codenaxa.in"
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  startIcon={<MessageCircle size={20} aria-hidden="true" />}
                   sx={{
-                    px: 6,
+                    px: 4,
                     py: 2,
                     fontSize: "1.1rem",
                     borderRadius: 3,
+                    bgcolor: "#25D366",
+                    "&:hover": {
+                      bgcolor: "#128C7E",
+                    },
                   }}
                 >
-                  Email Me Directly
+                  Connect with WhatsApp
                 </Button>
+
 
 
                 <Button
@@ -159,7 +172,7 @@ export default function HeroSection() {
                   size="large"
                   component={Link}
                   href="/#projects"
-                  endIcon={<ArrowRight size={18} />}
+                  endIcon={<ArrowRight size={18} aria-hidden="true" />}
                   sx={{
                     px: 6,
                     py: 2,
@@ -186,22 +199,9 @@ export default function HeroSection() {
                   aspectRatio: "1/1",
                   borderRadius: 6,
                   overflow: "hidden",
-                  boxShadow:
-                    muiTheme.palette.mode === "light"
-                      ? "0 40px 80px rgba(0,0,0,0.1)"
-                      : "0 40px 80px rgba(0,0,0,0.4)",
-                  border: "1px solid",
-                  borderColor: "divider",
                 }}
               >
-                <Image
-                  src={heroImageUrl}
-                  alt="Developer coding at a web development workspace"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
+                <Hero3D />
               </Box>
             </motion.div>
           </Grid>

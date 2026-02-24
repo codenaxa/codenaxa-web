@@ -3,6 +3,7 @@ import './globals.css';
 import { Inter, Manrope } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import WhatsappFloat from '@/components/whatsapp-float';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -14,12 +15,12 @@ const manrope = Manrope({
   variable: '--font-manrope',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codenaxa.in';
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://codenaxa.in').replace(/\/$/, '');
 const siteName = 'codenaxa';
-const defaultTitle = 'Web Development Company in Kannur | Full Stack Experts Kerala';
+const defaultTitle = 'Freelance Full Stack Developer in Kannur | MSME Registered';
 const defaultDescription =
-  'codenaxa is an MSME-registered web development company in Kannur, Kerala specializing in scalable web applications, secure backend systems, and performance-driven full stack development.';
-const ogImagePath = '/og-image.png';
+  'codenaxa is an MSME-registered freelance full stack developer in Kannur, Kerala specializing in scalable web applications, SaaS platforms, secure backend systems, and performance-driven development.';
+const ogImagePath = '/logo.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,14 +31,14 @@ export const metadata: Metadata = {
   description: defaultDescription,
   applicationName: siteName,
   keywords: [
-    'Web Development Company Kannur',
+    'Freelance Web Developer Kannur',
     'Full Stack Developer Kerala',
-    'Web Design Kannur',
-    'Software Company Kerala',
-    'MSME Registered Web Development',
+    'Freelance Developer Kannur',
+    'MSME Registered Freelancer Kerala',
     'React JS Developer Kerala',
-    'Next JS Development Company',
+    'Next JS Developer Kannur',
     'Node JS Developer India',
+    'Freelance Full Stack Developer India',
   ],
   alternates: {
     canonical: '/',
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   category: 'technology',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_IN',
     url: siteUrl,
     title: `${defaultTitle} | ${siteName}`,
     description: defaultDescription,
@@ -56,17 +57,18 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImagePath,
-        width: 1200,
-        height: 630,
-        alt: 'codenaxa Web Development',
+        width: 512,
+        height: 512,
+        alt: 'codenaxa logo',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: `${defaultTitle} | ${siteName}`,
     description: defaultDescription,
     images: [ogImagePath],
+    site: '@codenaxa',
     creator: '@codenaxa',
   },
   icons: {
@@ -105,7 +107,17 @@ const organizationJsonLd = {
   logo: `${siteUrl}/logo.png`,
   image: `${siteUrl}${ogImagePath}`,
   email: 'contact@codenaxa.in',
-  areaServed: ['IN', 'Kannur', 'Kerala'],
+  telephone: '+91 82816 57534',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91 82816 57534',
+      contactType: 'sales',
+      areaServed: 'IN',
+      availableLanguage: ['en', 'ml'],
+    },
+  ],
+  areaServed: ['IN', 'Kerala'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Kannur',
@@ -128,6 +140,24 @@ const websiteJsonLd = {
   inLanguage: 'en-IN',
 };
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'codenaxa',
+  jobTitle: 'Freelance Full Stack Developer',
+  url: siteUrl,
+  sameAs: [
+    'https://github.com/codenaxa',
+    'https://linkedin.com/in/codenaxa',
+    'https://instagram.com/codenaxa',
+    'https://x.com/codenaxa',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'codenaxa',
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -138,7 +168,11 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//api.fontshare.com" />
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="style"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=general-sans@700,600,500,400&display=swap"
+        />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=general-sans@700,600,500,400&display=swap"
           rel="stylesheet"
@@ -151,13 +185,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
-      <body className={`${inter.variable} ${manrope.variable} antialiased`}>
-        <a href="#main-content" className="skip-link hidden">
-          Skip to main content
-        </a>
+      <body className={`${inter.variable} ${manrope.variable} antialiased`} suppressHydrationWarning>
         <ThemeProvider>
           {children}
+          <WhatsappFloat />
           <Toaster />
         </ThemeProvider>
       </body>

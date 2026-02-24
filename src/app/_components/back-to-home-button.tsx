@@ -10,7 +10,7 @@ export default function BackToHomeButton() {
             variant="contained"
             component={Link}
             href="/"
-            startIcon={<Home size={20} />}
+            startIcon={<Home size={20} aria-hidden="true" />}
             sx={{
                 px: 4,
                 py: 1.5,

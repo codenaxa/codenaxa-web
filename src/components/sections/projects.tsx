@@ -44,6 +44,7 @@ export default function ProjectsSection() {
     <Box
       id="projects"
       component="section"
+      aria-labelledby="projects-heading"
       sx={{
         py: { xs: 12, md: 16 },
       }}
@@ -72,6 +73,7 @@ export default function ProjectsSection() {
 
             <Typography
               variant="h2"
+              id="projects-heading"
               sx={{
                 fontWeight: 800,
                 fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
@@ -144,7 +146,7 @@ export default function ProjectsSection() {
                         mb: 2,
                       }}
                     >
-                      <Code size={16} color={muiTheme.palette.secondary.main} />
+                      <Code size={16} color={muiTheme.palette.secondary.main} aria-hidden="true" />
                       <Typography
                         variant="caption"
                         sx={{

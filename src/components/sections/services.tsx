@@ -13,42 +13,42 @@ import { useTheme as useMuiTheme, alpha } from "@mui/material";
 
 const services = [
   {
-    icon: <Globe size={28} />,
+    icon: <Globe size={28} aria-hidden="true" />,
     title: "Custom Web Application Development",
     description:
       "End-to-end development of modern web applications using React, Next.js, Node.js, or Django - built for performance and scalability.",
     benefits: ["Frontend + Backend Development", "Clean Architecture", "Production Deployment"],
   },
   {
-    icon: <Server size={28} />,
+    icon: <Server size={28} aria-hidden="true" />,
     title: "SaaS & Product Development",
     description:
       "Build and launch scalable SaaS platforms with secure authentication, subscription logic, and API integrations.",
     benefits: ["Authentication & Authorization", "API Integrations", "Scalable Backend Systems"],
   },
   {
-    icon: <Database size={28} />,
+    icon: <Database size={28} aria-hidden="true" />,
     title: "Backend & API Development",
     description:
       "Secure and optimized backend systems with well-structured APIs, database design, and performance tuning.",
     benefits: ["REST APIs", "Database Optimization", "Secure Data Handling"],
   },
   {
-    icon: <Zap size={28} />,
+    icon: <Zap size={28} aria-hidden="true" />,
     title: "Performance Optimization",
     description:
       "Improve loading speed, Core Web Vitals, and system efficiency for better user experience and search rankings.",
     benefits: ["Speed Optimization", "Code Refactoring", "Caching Strategies"],
   },
   {
-    icon: <Smartphone size={28} />,
+    icon: <Smartphone size={28} aria-hidden="true" />,
     title: "Responsive & PWA Development",
     description:
       "Mobile-first web systems with offline capability and seamless cross-device experience.",
     benefits: ["Mobile Optimization", "Service Workers", "Offline Functionality"],
   },
   {
-    icon: <Shield size={28} />,
+    icon: <Shield size={28} aria-hidden="true" />,
     title: "Security & System Hardening",
     description:
       "Implementation of secure authentication, encryption standards, and protection against common vulnerabilities.",
@@ -63,6 +63,7 @@ export default function ServicesSection() {
     <Box
       id="services"
       component="section"
+      aria-labelledby="services-heading"
       sx={{
         py: { xs: 12, md: 16 },
         bgcolor:
@@ -97,6 +98,7 @@ export default function ServicesSection() {
 
             <Typography
               variant="h2"
+              id="services-heading"
               sx={{
                 fontWeight: 800,
                 mb: 3,
