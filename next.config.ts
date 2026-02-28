@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
   experimental: {
     optimizePackageImports: ['@mui/material', '@mui/icons-material', 'lucide-react'],
   },

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged, User, signOut } from "firebase/auth";
+import type { User } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 type AuthContextType = {
@@ -21,19 +21,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!auth) {
-            setLoading(false);
-            return;
-        }
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setUser(user);
-            setLoading(false);
-        });
-        return () => unsubscribe();
+        let unsubscribe: (() => void) | undefined;
+
+        const initAuth = async () => {
+            try {
+                const { onAuthStateChanged } = await import("firebase/auth");
+                if (!auth) {
+                    setLoading(false);
+                    return;
+                }
+                unsubscribe = onAuthStateChanged(auth, (user) => {
+                    setUser(user);
+                    setLoading(false);
+                });
+            } catch (error) {
+                console.error("Auth initialization error:", error);
+                setLoading(false);
+            }
+        };
+
+        initAuth();
+        return () => {
+            if (unsubscribe) unsubscribe();
+        };
     }, []);
 
     const logout = async () => {
         if (auth) {
+            const { signOut } = await import("firebase/auth");
             await signOut(auth);
         }
     };

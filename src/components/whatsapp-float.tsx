@@ -22,11 +22,11 @@ export default function WhatsappFloat() {
                         position: "fixed",
                         bottom: { xs: 20, md: 30 },
                         right: { xs: 20, md: 30 },
-                        bgcolor: "#128C7E", // WhatsApp Green
+                        bgcolor: "#075E54", // Darker WhatsApp Green for accessibility
                         color: "white",
                         zIndex: 1000,
                         "&:hover": {
-                            bgcolor: "#25D366", // Darker WhatsApp Green
+                            bgcolor: "#107C6F",
                             transform: "scale(1.1)",
                         },
                         transition: "all 0.3s ease-in-out",

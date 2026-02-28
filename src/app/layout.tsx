@@ -3,8 +3,9 @@ import './globals.css';
 import { Inter, Manrope } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { AuthProvider } from '@/components/auth-provider';
-import { Toaster } from '@/components/ui/toaster';
-import WhatsappFloat from '@/components/whatsapp-float';
+import dynamic from 'next/dynamic';
+const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster));
+const WhatsappFloat = dynamic(() => import('@/components/whatsapp-float'));
 
 const inter = Inter({
   subsets: ['latin'],

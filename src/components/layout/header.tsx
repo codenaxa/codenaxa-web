@@ -48,39 +48,50 @@ export default function Header() {
     : navLinks;
 
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
-
-          if (pathname === "/") {
-            const sections = activeNavLinks.map(link => link.id).filter(id => id !== "home" && id !== "blog" && id !== "dashboard");
-            let current = "home";
-
-            for (const section of sections) {
-              const element = document.getElementById(section);
-              if (element) {
-                const rect = element.getBoundingClientRect();
-                // A bit of offset for activation
-                if (rect.top <= 150) {
-                  current = section;
-                }
-              }
-            }
-            setActiveSection(current);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = activeNavLinks
+      .map(link => link.id)
+      .filter(id => id !== "home" && id !== "blog" && id !== "dashboard");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -80% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+
+      // Special case for home (top of page)
+      if (window.scrollY < 100) {
+        setActiveSection("home");
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [pathname, activeNavLinks]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -117,6 +128,7 @@ export default function Header() {
                 alt="Codenaxa"
                 fill
                 sizes="36px"
+                priority
                 className="object-contain"
               />
             </Box>

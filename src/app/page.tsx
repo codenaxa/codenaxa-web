@@ -1,14 +1,16 @@
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/sections/hero';
 import AboutSection from '@/components/sections/about';
-import ServicesSection from '@/components/sections/services';
-import ProjectsSection from '@/components/sections/projects';
-import WorkPackages from '@/components/sections/work-packages';
-import TestimonialsSection from '@/components/sections/testimonials';
-import FAQSection from '@/components/sections/faq';
-import ContactSection from '@/components/sections/contact';
+
+const ServicesSection = dynamic(() => import('@/components/sections/services'));
+const ProjectsSection = dynamic(() => import('@/components/sections/projects'));
+const WorkPackages = dynamic(() => import('@/components/sections/work-packages'));
+const TestimonialsSection = dynamic(() => import('@/components/sections/testimonials'));
+const FAQSection = dynamic(() => import('@/components/sections/faq'));
+const ContactSection = dynamic(() => import('@/components/sections/contact'));
 
 export const metadata: Metadata = {
   title: 'Freelance Full Stack Developer in Kannur',
