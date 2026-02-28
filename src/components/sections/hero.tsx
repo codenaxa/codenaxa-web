@@ -7,12 +7,70 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, Globe2 } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-import { useTheme as useMuiTheme, alpha } from "@mui/material";
+import { useTheme as useMuiTheme, alpha, useMediaQuery } from "@mui/material";
 
 const LightweightHeroAnimation = () => {
+  const theme = useMuiTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Return empty/placeholder during SSR to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <Box
+        sx={{
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      />
+    );
+  }
+
+  // Simplified static version for mobile to save CPU cycles
+  if (isMobile) {
+    return (
+      <Box
+        sx={{
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          sx={{
+            width: 250,
+            height: 250,
+            borderRadius: '50%',
+            background: `linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.2)}, ${alpha(theme.palette.primary.main, 0.1)})`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: `1px solid ${alpha(theme.palette.secondary.main, 0.2)}`,
+            boxShadow: `0 0 40px ${alpha(theme.palette.secondary.main, 0.1)}`
+          }}
+        >
+          <Globe2 size={100} color={theme.palette.secondary.main} opacity={0.5} strokeWidth={1} />
+        </Box>
+      </Box>
+    );
+  }
+
+  // Full heavy 3D animation for desktop
   return (
     <Box
       sx={{
