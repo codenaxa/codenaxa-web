@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -49,6 +49,7 @@ export default function TestimonialsSection() {
           >
             <Typography
               variant="caption"
+              component="p"
               sx={{
                 fontWeight: 800,
                 color: "secondary.main",
@@ -132,6 +133,7 @@ export default function TestimonialsSection() {
 
                   <Typography
                     variant="subtitle2"
+                    component="p"
                     sx={{
                       fontWeight: 700,
                     }}
@@ -139,7 +141,7 @@ export default function TestimonialsSection() {
                     {testimonial.name}
                   </Typography>
 
-                  <Typography variant="caption" sx={{ color: "text.secondary" }}>
+                  <Typography variant="caption" component="p" sx={{ color: "text.secondary" }}>
                     Verified Google Review
                   </Typography>
                 </Card>

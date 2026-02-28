@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -14,45 +14,45 @@ import { useTheme as useMuiTheme, alpha } from "@mui/material";
 const services = [
   {
     icon: <Globe size={28} aria-hidden="true" />,
-    title: "Custom Web Application Development",
+    title: "Business Web Systems",
     description:
-      "End-to-end development of modern web applications using React, Next.js, Node.js, or Django - built for performance and scalability.",
-    benefits: ["Frontend + Backend Development", "Clean Architecture", "Production Deployment"],
+      "Custom-built web platforms designed to streamline operations, improve customer experience, and support business growth.",
+    benefits: ["End-to-End Development", "Scalable Architecture", "Production Deployment"],
   },
   {
     icon: <Server size={28} aria-hidden="true" />,
-    title: "SaaS & Product Development",
+    title: "SaaS & Platform Development",
     description:
-      "Build and launch scalable SaaS platforms with secure authentication, subscription logic, and API integrations.",
-    benefits: ["Authentication & Authorization", "API Integrations", "Scalable Backend Systems"],
+      "Build and launch scalable platforms with secure access, subscriptions, and integrations.",
+    benefits: ["User Authentication", "API Integrations", "Scalable Systems"],
   },
   {
     icon: <Database size={28} aria-hidden="true" />,
-    title: "Backend & API Development",
+    title: "Business Logic & Automation",
     description:
-      "Secure and optimized backend systems with well-structured APIs, database design, and performance tuning.",
-    benefits: ["REST APIs", "Database Optimization", "Secure Data Handling"],
+      "Structured backend systems that automate workflows and improve efficiency.",
+    benefits: ["System Automation", "Database Optimization", "Secure Data Handling"],
   },
   {
     icon: <Zap size={28} aria-hidden="true" />,
-    title: "Performance Optimization",
+    title: "Website Speed & Performance",
     description:
-      "Improve loading speed, Core Web Vitals, and system efficiency for better user experience and search rankings.",
+      "Improve loading speed and system efficiency for better user experience and SEO.",
     benefits: ["Speed Optimization", "Code Refactoring", "Caching Strategies"],
   },
   {
     icon: <Smartphone size={28} aria-hidden="true" />,
-    title: "Responsive & PWA Development",
+    title: "Mobile-Optimized Web Experience",
     description:
-      "Mobile-first web systems with offline capability and seamless cross-device experience.",
-    benefits: ["Mobile Optimization", "Service Workers", "Offline Functionality"],
+      "Seamless experience across devices with modern responsive systems.",
+    benefits: ["Mobile Optimization", "Offline Capability", "Cross-Device Support"],
   },
   {
     icon: <Shield size={28} aria-hidden="true" />,
-    title: "Security & System Hardening",
+    title: "Secure & Reliable Systems",
     description:
-      "Implementation of secure authentication, encryption standards, and protection against common vulnerabilities.",
-    benefits: ["JWT / OAuth", "Secure Sessions", "Data Encryption"],
+      "Implementation of secure authentication and protection against vulnerabilities.",
+    benefits: ["Secure Login", "Session Protection", "Data Encryption"],
   },
 ];
 
@@ -84,6 +84,7 @@ export default function ServicesSection() {
           >
             <Typography
               variant="caption"
+              component="p"
               sx={{
                 fontWeight: 800,
                 color: "secondary.main",
@@ -136,6 +137,8 @@ export default function ServicesSection() {
                 <Card
                   sx={{
                     height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
                     borderRadius: 4,
                     border: `1px solid ${muiTheme.palette.divider}`,
                     boxShadow: "none",
@@ -146,7 +149,7 @@ export default function ServicesSection() {
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent sx={{ p: 4, height: "100%", display: "flex", flexDirection: "column" }}>
                     <Box
                       sx={{
                         width: 54,
@@ -163,7 +166,7 @@ export default function ServicesSection() {
                       {service.icon}
                     </Box>
 
-                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                    <Typography variant="h6" component="h3" sx={{ fontWeight: 800, mb: 2, minHeight: { md: '4.5rem' }, display: 'flex', alignItems: 'flex-start', pt: 0.5 }}>
                       {service.title}
                     </Typography>
 
@@ -173,26 +176,30 @@ export default function ServicesSection() {
                         color: "text.secondary",
                         mb: 3,
                         lineHeight: 1.7,
+                        minHeight: { md: '5rem' }
                       }}
                     >
                       {service.description}
                     </Typography>
 
-                    <Box component="ul" sx={{ m: 0, pl: 2.5 }}>
-                      {service.benefits.map((benefit, i) => (
-                        <Typography
-                          key={i}
-                          component="li"
-                          variant="body2"
-                          sx={{
-                            fontWeight: 600,
-                            fontSize: "0.9rem",
-                            mb: 1,
-                          }}
-                        >
-                          {benefit}
-                        </Typography>
-                      ))}
+                    <Box sx={{ mt: 'auto', pt: 3, borderTop: `1px solid ${alpha(muiTheme.palette.divider, 0.5)}` }}>
+                      <Box component="ul" sx={{ m: 0, pl: 2, listStyleType: 'none' }}>
+                        {service.benefits.map((benefit, i) => (
+                          <Box key={i} component="li" sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5, gap: 1.5 }}>
+                            <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: 'secondary.main', mt: 1, flexShrink: 0 }} />
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                fontWeight: 600,
+                                fontSize: "0.85rem",
+                                color: "text.primary",
+                              }}
+                            >
+                              {benefit}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
                     </Box>
                   </CardContent>
                 </Card>

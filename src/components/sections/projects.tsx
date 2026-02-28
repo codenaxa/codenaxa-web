@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -59,6 +59,7 @@ export default function ProjectsSection() {
           >
             <Typography
               variant="caption"
+              component="p"
               sx={{
                 fontWeight: 800,
                 color: "secondary.main",
@@ -110,6 +111,9 @@ export default function ProjectsSection() {
               >
                 <Card
                   sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
                     borderRadius: 4,
                     overflow: "hidden",
                     border: `1px solid ${muiTheme.palette.divider}`,
@@ -125,7 +129,8 @@ export default function ProjectsSection() {
                     sx={{
                       position: "relative",
                       width: "100%",
-                      aspectRatio: "16/10",
+                      aspectRatio: "16/9",
+                      flexShrink: 0,
                     }}
                   >
                     <Image
@@ -137,7 +142,7 @@ export default function ProjectsSection() {
                     />
                   </Box>
 
-                  <Box sx={{ p: 4 }}>
+                  <Box sx={{ p: 4, flexGrow: 1, display: "flex", flexDirection: "column" }}>
                     <Box
                       sx={{
                         display: "flex",
@@ -149,6 +154,7 @@ export default function ProjectsSection() {
                       <Code size={16} color={muiTheme.palette.secondary.main} aria-hidden="true" />
                       <Typography
                         variant="caption"
+                        component="p"
                         sx={{
                           fontWeight: 800,
                           color: "secondary.main",
@@ -159,7 +165,7 @@ export default function ProjectsSection() {
                       </Typography>
                     </Box>
 
-                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 2 }}>
+                    <Typography variant="h5" component="h3" sx={{ fontWeight: 800, mb: 2 }}>
                       {project.title}
                     </Typography>
 
@@ -184,21 +190,24 @@ export default function ProjectsSection() {
                       Impact: {project.impact}
                     </Typography>
 
-                    <Button
-                      variant="outlined"
-                      component="a"
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      endIcon={<ArrowRight size={18} />}
-                      sx={{
-                        borderRadius: 2,
-                        textTransform: "none",
-                        fontWeight: 700,
-                      }}
-                    >
-                      View Live Project
-                    </Button>
+                    <Box sx={{ mt: 'auto' }}>
+                      <Button
+                        variant="outlined"
+                        component="a"
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        endIcon={<ArrowRight size={18} />}
+                        sx={{
+                          borderRadius: 2,
+                          textTransform: "none",
+                          fontWeight: 700,
+                          width: { xs: '100%', sm: 'auto' }
+                        }}
+                      >
+                        View Live Project
+                      </Button>
+                    </Box>
                   </Box>
                 </Card>
               </motion.div>

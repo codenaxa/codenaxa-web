@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import { Fab, Tooltip, Zoom, useTheme } from "@mui/material";
 import { MessageCircle } from "lucide-react";
 
@@ -22,11 +22,11 @@ export default function WhatsappFloat() {
                         position: "fixed",
                         bottom: { xs: 20, md: 30 },
                         right: { xs: 20, md: 30 },
-                        bgcolor: "#25D366", // WhatsApp Green
+                        bgcolor: "#128C7E", // WhatsApp Green
                         color: "white",
                         zIndex: 1000,
                         "&:hover": {
-                            bgcolor: "#128C7E", // Darker WhatsApp Green
+                            bgcolor: "#25D366", // Darker WhatsApp Green
                             transform: "scale(1.1)",
                         },
                         transition: "all 0.3s ease-in-out",

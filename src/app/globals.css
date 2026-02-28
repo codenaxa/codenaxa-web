@@ -1,36 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
+
+* {
   margin: 0;
   padding: 0;
 }
-html,body{
+
+html,
+body {
   overflow-x: hidden;
 }
 
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 1rem;
-  z-index: 2000;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  background: hsl(var(--foreground));
-  color: hsl(var(--background));
-  text-decoration: none;
-  font-weight: 600;
-  transition: top 0.2s ease;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
 
 :focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -84,7 +71,7 @@ html,body{
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: var(--font-inter), sans-serif;
   }
@@ -99,18 +86,6 @@ html,body{
   }
 }
 
-.section-padding {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
-.alternate-bg {
-  @apply bg-slate-50/50 dark:bg-slate-900/20;
-}
-
-.glass-header {
-  @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border-b border-white/10 dark:border-white/5;
-}
 
 /* Custom fade in animation */
 @keyframes fadeInUp {
@@ -127,4 +102,14 @@ html,body{
 
 .animate-fade-up {
   animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

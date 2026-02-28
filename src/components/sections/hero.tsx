@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -9,14 +9,126 @@ import Grid from "@mui/material/Grid";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import { useTheme as useMuiTheme, alpha } from "@mui/material";
-import dynamic from "next/dynamic";
 
-const Hero3D = dynamic(() => import("./hero-3d"), {
-  ssr: false,
-  loading: () => <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.03)", borderRadius: "24px" }} />
-});
+import { useTheme as useMuiTheme, alpha } from "@mui/material";
+
+const LightweightHeroAnimation = () => {
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* Background glow */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-indigo-600/30 dark:bg-indigo-500/20 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-purple-600/30 dark:bg-purple-500/20 rounded-full blur-2xl"
+      />
+
+      {/* 3D Earth-like Sphere Rotation */}
+      <div
+        className="relative w-[85%] aspect-square mx-auto flex items-center justify-center transition-transform hover:scale-105 duration-700"
+        style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
+      >
+        {/* Core sphere glow */}
+        <motion.div
+          animate={{
+            boxShadow: [
+              "0 0 50px rgba(79,70,229,0.5)",
+              "0 0 80px rgba(79,70,229,0.8)",
+              "0 0 50px rgba(79,70,229,0.5)",
+            ],
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="absolute w-32 h-32 rounded-full bg-gradient-to-br from-indigo-600/50 to-purple-600/50 dark:from-indigo-500/30 dark:to-purple-600/30 blur-xl"
+        />
+
+        {/* Outer Ring */}
+        <div
+          className="absolute inset-0"
+          style={{ transform: "rotateX(70deg) rotateY(0deg)", transformStyle: "preserve-3d" }}
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 rounded-full border-2 border-indigo-600/50 dark:border-indigo-500/40"
+          >
+            {/* Orbiting particle */}
+            <div className="absolute top-0 left-1/2 w-4 h-4 bg-indigo-600 dark:bg-indigo-400 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.9)] -translate-x-1/2 -translate-y-1/2" />
+          </motion.div>
+        </div>
+
+        {/* Middle Ring */}
+        <div
+          className="absolute inset-8 md:inset-12"
+          style={{ transform: "rotateX(70deg) rotateY(60deg)", transformStyle: "preserve-3d" }}
+        >
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 rounded-full border-2 border-purple-600/50 dark:border-purple-500/40"
+          >
+            {/* Orbiting particle */}
+            <div className="absolute bottom-0 left-1/2 w-3.5 h-3.5 bg-purple-600 dark:bg-purple-400 rounded-full shadow-[0_0_15px_rgba(147,51,234,0.9)] -translate-x-1/2 translate-y-1/2" />
+          </motion.div>
+        </div>
+
+        {/* Inner Ring */}
+        <div
+          className="absolute inset-16 md:inset-24"
+          style={{ transform: "rotateX(70deg) rotateY(120deg)", transformStyle: "preserve-3d" }}
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 rounded-full border-2 border-cyan-600/50 dark:border-cyan-500/40"
+          >
+            {/* Orbiting particle */}
+            <div className="absolute top-1/2 right-0 w-3 h-3 bg-cyan-600 dark:bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(8,145,178,0.9)] translate-x-1/2 -translate-y-1/2" />
+          </motion.div>
+        </div>
+
+        {/* Subtle global spin layer */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0"
+        >
+          {/* Additional floating stars/dots */}
+          <div className="absolute top-[10%] left-[20%] w-1.5 h-1.5 bg-indigo-600/60 dark:bg-white/50 rounded-full blur-[1px]" />
+          <div className="absolute bottom-[20%] right-[10%] w-2 h-2 bg-purple-600/60 dark:bg-white/40 rounded-full blur-[1px]" />
+          <div className="absolute top-[30%] right-[25%] w-1.5 h-1.5 bg-cyan-600/60 dark:bg-white/30 rounded-full blur-[1px]" />
+        </motion.div>
+      </div>
+    </Box>
+  );
+};
 
 export default function HeroSection() {
   const muiTheme = useMuiTheme();
@@ -46,10 +158,9 @@ export default function HeroSection() {
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
           <Grid size={{ xs: 12, md: 7 }}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+            <div
+              className="animate-fade-up"
+              style={{ animationDuration: "0.8s" }}
             >
               <Box
                 sx={{
@@ -66,6 +177,7 @@ export default function HeroSection() {
               >
                 <Typography
                   variant="caption"
+                  component="p"
                   sx={{
                     fontWeight: 800,
                     letterSpacing: "0.1em",
@@ -156,9 +268,10 @@ export default function HeroSection() {
                     py: 2,
                     fontSize: "1.1rem",
                     borderRadius: 3,
-                    bgcolor: "#25D366",
+                    color: "white",
+                    bgcolor: "#128C7E",
                     "&:hover": {
-                      bgcolor: "#128C7E",
+                      bgcolor: "#25D366",
                     },
                   }}
                 >
@@ -183,14 +296,13 @@ export default function HeroSection() {
                   View My Work
                 </Button>
               </Box>
-            </motion.div>
+            </div>
           </Grid>
 
           <Grid size={{ xs: 12, md: 5 }}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
+            <div
+              className="animate-fade-up"
+              style={{ animationDuration: "1s", animationDelay: "0.3s", animationFillMode: "both" }}
             >
               <Box
                 sx={{
@@ -201,9 +313,9 @@ export default function HeroSection() {
                   overflow: "hidden",
                 }}
               >
-                <Hero3D />
+                <LightweightHeroAnimation />
               </Box>
-            </motion.div>
+            </div>
           </Grid>
         </Grid>
       </Container>

@@ -5,6 +5,7 @@ import HeroSection from '@/components/sections/hero';
 import AboutSection from '@/components/sections/about';
 import ServicesSection from '@/components/sections/services';
 import ProjectsSection from '@/components/sections/projects';
+import WorkPackages from '@/components/sections/work-packages';
 import TestimonialsSection from '@/components/sections/testimonials';
 import FAQSection from '@/components/sections/faq';
 import ContactSection from '@/components/sections/contact';
@@ -52,6 +53,7 @@ export default function Home() {
         <AboutSection />
         <ServicesSection />
         <ProjectsSection />
+        <WorkPackages />
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />

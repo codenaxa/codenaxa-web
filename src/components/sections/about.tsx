@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -62,6 +62,7 @@ export default function AboutSection() {
             >
               <Typography
                 variant="caption"
+                component="p"
                 sx={{
                   fontWeight: 800,
                   color: "secondary.main",
@@ -164,6 +165,7 @@ export default function AboutSection() {
 
                       <Typography
                         variant="h6"
+                        component="h3"
                         sx={{
                           fontWeight: 700,
                           mb: 1.5,

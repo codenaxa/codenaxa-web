@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -111,7 +111,7 @@ export default function FAQSection() {
                     expandIcon={<Plus size={20} style={{ color: muiTheme.palette.secondary.main }} />}
                     sx={{ px: 4, py: 1 }}
                   >
-                    <Typography sx={{ fontWeight: 700, fontSize: "1.1rem", fontFamily: "Satoshi" }}>
+                    <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.1rem", fontFamily: "Satoshi" }}>
                       {faq.question}
                     </Typography>
                   </AccordionSummary>

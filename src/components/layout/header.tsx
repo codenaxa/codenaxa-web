@@ -21,6 +21,7 @@ import {
   alpha
 } from "@mui/material";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useAuth } from "@/components/auth-provider";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -28,40 +29,55 @@ const navLinks = [
   { href: "/#about", label: "About", id: "about" },
   { href: "/#services", label: "Services", id: "services" },
   { href: "/#projects", label: "Projects", id: "projects" },
-  { href: "/#reviews", label: "Reviews", id: "reviews" },
+  { href: "/#work-packages", label: "Packages", id: "work-packages" },
+  { href: "/blog", label: "Blog", id: "blog" },
   { href: "/#contact", label: "Contact", id: "contact" },
 ];
 
 export default function Header() {
+  const { user } = useAuth();
   const pathname = usePathname();
   const muiTheme = useMuiTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  const isAdmin = user?.email === "codenaxa@gmail.com";
+  const activeNavLinks = isAdmin
+    ? [...navLinks, { href: "/admin/blogs", label: "Dashboard", id: "dashboard" }]
+    : navLinks;
+
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
 
-      if (pathname === "/") {
-        const sections = navLinks.map(link => link.id).filter(id => id !== "home");
-        let current = "home";
+          if (pathname === "/") {
+            const sections = activeNavLinks.map(link => link.id).filter(id => id !== "home" && id !== "blog" && id !== "dashboard");
+            let current = "home";
 
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            // A bit of offset for activation
-            if (rect.top <= 150) {
-              current = section;
+            for (const section of sections) {
+              const element = document.getElementById(section);
+              if (element) {
+                const rect = element.getBoundingClientRect();
+                // A bit of offset for activation
+                if (rect.top <= 150) {
+                  current = section;
+                }
+              }
             }
+            setActiveSection(current);
           }
-        }
-        setActiveSection(current);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
@@ -115,7 +131,7 @@ export default function Header() {
             aria-label="Primary"
             sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 5 }}
           >
-            {navLinks.map((link) => (
+            {activeNavLinks.map((link) => (
               <Link
                 key={link.id}
                 href={link.href}
@@ -205,7 +221,7 @@ export default function Header() {
           </IconButton>
         </Box>
         <List component="nav" aria-label="Mobile primary" sx={{ mb: 4 }}>
-          {navLinks.map((link) => (
+          {activeNavLinks.map((link) => (
             <ListItem key={link.id} disablePadding sx={{ mb: 1 }}>
               <ListItemButton
                 component={Link}

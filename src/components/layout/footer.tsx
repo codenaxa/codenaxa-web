@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -82,7 +82,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Typography variant="h6" sx={{ fontWeight: 800, mb: 3 }}>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 800, mb: 3 }}>
               Services
             </Typography>
 
@@ -111,7 +111,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Typography variant="h6" sx={{ fontWeight: 800, mb: 3 }}>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 800, mb: 3 }}>
               Quick Links
             </Typography>
 

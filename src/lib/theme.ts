@@ -60,7 +60,7 @@ const baseThemeOptions: ThemeOptions = {
                     borderRadius: 12,
                     padding: '10px 24px',
                     boxShadow: 'none',
-                    transition: 'all 0.2s ease-in-out',
+                    transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out',
                     '&:hover': {
                         boxShadow: 'none',
                         transform: 'translateY(-1px)',
@@ -74,7 +74,7 @@ const baseThemeOptions: ThemeOptions = {
                     borderRadius: 16,
                     boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
                     border: '1px solid rgba(0,0,0,0.06)',
-                    transition: 'all 0.3s ease-in-out',
+                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out',
                 },
             },
         },
