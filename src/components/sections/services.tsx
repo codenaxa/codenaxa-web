@@ -83,6 +83,8 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
+
+
               <Typography
                 variant="caption"
                 component="p"
@@ -107,7 +109,22 @@ export default function ServicesSection() {
                   fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
                 }}
               >
-                What I Can Build For You
+                Business Systems Delivered for Growth
+              </Typography>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "text.secondary",
+                  maxWidth: 700,
+                  mx: "auto",
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  lineHeight: 1.8,
+                }}
+              >
+                Structured web platforms, SaaS systems, and backend solutions designed to support
+                operations, enable automation, and scale with business needs - delivered under a
+                registered MSME framework.
               </Typography>
 
               <Typography

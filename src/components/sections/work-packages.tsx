@@ -13,61 +13,61 @@ import { Check, Zap, Shield, Layout, Rocket, TrendingUp, Cpu } from "lucide-reac
 import { useTheme as useMuiTheme, alpha } from "@mui/material";
 
 const mainPackages = [
-    {
-        title: "Starter Build",
-        subtitle: "For small businesses starting online",
-        price: "₹8K – ₹15K",
-        icon: <Rocket size={24} />,
-        features: [
-            "Business website",
-            "Mobile responsive",
-            "Contact / Lead form",
-            "Basic SEO setup"
-        ]
-    },
-    {
-        title: "Growth System",
-        subtitle: "For businesses that want leads & automation",
-        price: "₹20K – ₹35K",
-        icon: <TrendingUp size={24} />,
-        featured: true,
-        features: [
-            "Custom web app / advanced site",
-            "Dashboard / admin",
-            "Integrations (WhatsApp / payments etc.)",
-            "Performance optimization"
-        ]
-    },
-    {
-        title: "Scalable Platform",
-        subtitle: "For startups / SaaS / complex systems",
-        price: "₹45K+",
-        icon: <Cpu size={24} />,
-        features: [
-            "Full-stack architecture",
-            "Authentication",
-            "API integrations",
-            "Scalable backend"
-        ]
-    },
-    {
-        title: "Custom Solution",
-        subtitle: "For unique or large-scale requirements",
-        price: "Let's Discuss",
-        icon: <Cpu size={24} />,
-        features: [
-            "Tailored system architecture",
-            "Advanced integrations",
-            "Business-specific workflows",
-            "Scalable infrastructure"
-        ],
-    }
+  {
+    title: "Foundation System",
+    subtitle: "For businesses establishing their digital presence",
+    price: "INR 8K - 15K",
+    icon: <Rocket size={24} />,
+    features: [
+      "Business-ready website",
+      "Mobile responsive experience",
+      "Lead capture setup",
+      "Basic performance optimization"
+    ]
+  },
+  {
+    title: "Growth Platform",
+    subtitle: "For businesses ready to streamline operations",
+    price: "INR 20K - 35K",
+    icon: <TrendingUp size={24} />,
+    featured: true,
+    features: [
+      "Custom web application",
+      "Admin dashboard",
+      "Workflow integrations",
+      "Performance tuning"
+    ]
+  },
+  {
+    title: "Advanced Platform",
+    subtitle: "For startups and scalable product ideas",
+    price: "INR 45K+",
+    icon: <Cpu size={24} />,
+    features: [
+      "Full-stack architecture",
+      "Authentication systems",
+      "API integrations",
+      "Scalable backend"
+    ]
+  },
+  {
+    title: "Strategic Build",
+    subtitle: "For unique or high-complexity systems",
+    price: "Custom Scope",
+    icon: <Cpu size={24} />,
+    features: [
+      "Tailored architecture",
+      "Advanced integrations",
+      "Business-specific workflows",
+      "Scalable infrastructure"
+    ]
+  }
 ];
 
 const miniPackages = [
-    { title: "Speed Optimization", price: "₹5K+", icon: <Zap size={18} /> },
-    { title: "Security Hardening", price: "₹7K+", icon: <Shield size={18} /> },
-    { title: "UI Revamp", price: "₹10K+", icon: <Layout size={18} /> }
+    { title: "Speed Optimization", price: "INR 5K+", icon: <Zap size={18} /> },
+    { title: "Security Hardening", price: "INR 7K+", icon: <Shield size={18} /> },
+    { title: "UI Revamp", price: "INR 10K+", icon: <Layout size={18} /> }
 ];
 
 export default function WorkPackages() {
@@ -102,7 +102,7 @@ export default function WorkPackages() {
                                     mb: 2,
                                 }}
                             >
-                                Work Packages
+                               Engagement Models
                             </Typography>
 
                             <Typography
@@ -113,7 +113,8 @@ export default function WorkPackages() {
                                     fontSize: { xs: "2.25rem", sm: "2.75rem", md: "3.5rem" },
                                 }}
                             >
-                                Ways to Work Together
+                             Structured Development Approaches
+
                             </Typography>
 
                             <Typography
@@ -200,7 +201,6 @@ export default function WorkPackages() {
                                                     Starting from
                                                 </Typography>
                                                 <Typography variant="h4" sx={{ fontWeight: 900, color: 'text.primary', mb: pkg.price === "Let's Discuss" ? 2 : 0 }}>
-                                                    <span style={{ fontSize: '1.25rem', marginRight: '4px' }}>👉</span>
                                                     {pkg.price}
                                                 </Typography>
                                                 {pkg.price === "Let's Discuss" && (

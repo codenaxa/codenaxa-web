@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -43,9 +43,13 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
 
   const isAdmin = user?.email === "codenaxa@gmail.com";
-  const activeNavLinks = isAdmin
-    ? [...navLinks, { href: "/admin/blogs", label: "Dashboard", id: "dashboard" }]
-    : navLinks;
+  const activeNavLinks = useMemo(
+    () =>
+      isAdmin
+        ? [...navLinks, { href: "/admin/blogs", label: "Dashboard", id: "dashboard" }]
+        : navLinks,
+    [isAdmin]
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -250,7 +254,7 @@ export default function Header() {
                   primaryTypographyProps={{
                     fontWeight: isLinkActive(link.href, link.id) ? 700 : 500,
                     fontSize: '18px',
-                    fontFamily: 'Satoshi'
+                    fontFamily: 'var(--font-display), var(--font-manrope), sans-serif'
                   }}
                 />
               </ListItemButton>

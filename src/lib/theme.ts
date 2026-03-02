@@ -4,36 +4,36 @@ import { createTheme, responsiveFontSizes, ThemeOptions } from '@mui/material/st
 
 const baseThemeOptions: ThemeOptions = {
     typography: {
-        fontFamily: '"Inter", "Manrope", sans-serif',
+        fontFamily: 'var(--font-inter), var(--font-manrope), sans-serif',
         h1: {
-            fontFamily: '"Satoshi", "General Sans", sans-serif',
+            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
             fontWeight: 700,
             letterSpacing: '-0.02em',
             fontSize: '3.5rem',
         },
         h2: {
-            fontFamily: '"Satoshi", "General Sans", sans-serif',
+            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
             fontWeight: 700,
             letterSpacing: '-0.01em',
             fontSize: '2.5rem',
         },
         h3: {
-            fontFamily: '"Satoshi", "General Sans", sans-serif',
+            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
             fontWeight: 600,
             fontSize: '2rem',
         },
         h4: {
-            fontFamily: '"Satoshi", "General Sans", sans-serif',
+            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
             fontWeight: 600,
             fontSize: '1.5rem',
         },
         h5: {
-            fontFamily: '"Satoshi", "General Sans", sans-serif',
+            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
             fontWeight: 600,
             fontSize: '1.25rem',
         },
         h6: {
-            fontFamily: '"Satoshi", "General Sans", sans-serif',
+            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
             fontWeight: 600,
             fontSize: '1.1rem',
         },

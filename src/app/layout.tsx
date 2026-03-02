@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { Inter, Manrope } from 'next/font/google';
+import { Inter, Manrope, Space_Grotesk } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import { AuthProvider } from '@/components/auth-provider';
+import ThemeRegistry from '@/components/theme-registry';
 import dynamic from 'next/dynamic';
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster));
 const WhatsappFloat = dynamic(() => import('@/components/whatsapp-float'));
@@ -15,6 +15,12 @@ const inter = Inter({
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
 });
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://codenaxa.in').replace(/\/$/, '');
@@ -170,31 +176,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-IN" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          as="style"
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=general-sans@700,600,500,400&display=swap"
-        />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=general-sans@700,600,500,400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={`${inter.variable} ${manrope.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} antialiased`} suppressHydrationWarning>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
         />
-        <AuthProvider>
+        <ThemeRegistry>
           <ThemeProvider>
             {children}
             <WhatsappFloat />
             <Toaster />
           </ThemeProvider>
-        </AuthProvider>
+        </ThemeRegistry>
       </body>
     </html>
   );

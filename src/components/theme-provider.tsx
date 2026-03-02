@@ -28,10 +28,8 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const savedTheme = localStorage.getItem(storageKey) as Theme | null;
     if (savedTheme === "light" || savedTheme === "dark") {
       setThemeState(savedTheme);
@@ -66,7 +64,7 @@ export function ThemeProvider({
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
       <MuiThemeProvider theme={currentTheme}>
-        {mounted && <CssBaseline />}
+        <CssBaseline />
         {children}
       </MuiThemeProvider>
     </ThemeProviderContext.Provider>

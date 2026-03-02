@@ -40,7 +40,23 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'codenaxa.in',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.codenaxa.in',
+      },
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'codenaxaauth.firebasestorage.app',
       },
     ],
     formats: ['image/avif', 'image/webp'],

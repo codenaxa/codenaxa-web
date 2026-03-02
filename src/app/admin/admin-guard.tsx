@@ -5,7 +5,7 @@ import { useAuth } from "@/components/auth-provider";
 import { useRouter } from "next/navigation";
 import { Box, CircularProgress } from "@mui/material";
 
-const ALLOWED_EMAIL = "codenaxa@gmail.com";
+const ALLOWED_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL
 
 export default function AdminGuard({ children }: { children: React.ReactNode }) {
     const { user, loading } = useAuth();

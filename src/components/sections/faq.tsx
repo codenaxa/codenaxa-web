@@ -15,29 +15,29 @@ const faqs = [
   {
     question: "Is Codenaxa a registered business?",
     answer:
-      "Yes. Codenaxa is officially registered as an MSME business in India. Projects are handled with structured agreements and GST invoicing.",
+      "Yes. Codenaxa operates under a registered MSME entity in India, enabling structured agreements, GST invoicing, and accountable project delivery.",
   },
   {
     question: "Do you work alone or with a team?",
     answer:
-      "Codenaxa is operated by a freelance full-stack developer. All core development work is handled personally to ensure technical consistency and accountability.",
+      "Codenaxa is independently operated, allowing direct ownership of architecture, development, and delivery. This ensures consistency, faster execution, and clear accountability throughout the project.",
   },
   {
     question: "What technologies do you specialize in?",
     answer:
-      "I work primarily with React, Next.js, Node.js, Django, and modern database systems. The stack is selected based on project requirements and scalability needs.",
+      "Projects are built using modern frameworks such as React, Next.js, Node.js, and Django. The technology stack is selected based on performance, scalability, and long-term maintainability.",
   },
   {
     question: "How can I start a project?",
     answer:
-      "You can directly initiate a conversation via WhatsApp. After understanding your requirements, I provide a structured proposal and project roadmap.",
+      "You can initiate a discussion via WhatsApp or contact form. After understanding your requirements, a structured proposal and execution roadmap will be shared.",
   },
   {
     question: "Do you work with clients outside Kerala or India?",
-    answer: "Yes. Projects are handled remotely and I work with clients across India and internationally.",
+    answer:
+      "Yes. Projects are handled remotely, and clients are supported across India and internationally.",
   },
 ];
-
 export default function FAQSection() {
   const muiTheme = useMuiTheme();
 
@@ -68,13 +68,13 @@ export default function FAQSection() {
                   fontWeight: 800,
                   mb: 3,
                   fontSize: { xs: "2.25rem", md: "3rem" },
-                  fontFamily: "Satoshi, sans-serif",
+                  fontFamily: "var(--font-display), var(--font-manrope), sans-serif",
                 }}
               >
                 Common <Box component="span" sx={{ color: "secondary.main" }}>Inquiries</Box>
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ fontSize: "1.1rem" }}>
-                Frequently asked questions about codenaxa and our web development services.
+               Frequently asked questions about engagement, delivery, and project collaboration
               </Typography>
             </m.div>
           </Box>
@@ -112,7 +112,7 @@ export default function FAQSection() {
                       expandIcon={<Plus size={20} style={{ color: muiTheme.palette.secondary.main }} />}
                       sx={{ px: 4, py: 1 }}
                     >
-                      <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.1rem", fontFamily: "Satoshi" }}>
+                      <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.1rem", fontFamily: "var(--font-display), var(--font-manrope), sans-serif" }}>
                         {faq.question}
                       </Typography>
                     </AccordionSummary>

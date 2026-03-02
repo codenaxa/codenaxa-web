@@ -107,9 +107,8 @@ export default function ContactSection() {
                   fontSize: { xs: "2rem", md: "3rem" },
                 }}
               >
-                Start Your Project
+                Discuss Your Requirements
               </Typography>
-
               <Typography
                 variant="body1"
                 sx={{
@@ -119,7 +118,8 @@ export default function ContactSection() {
                   mb: 5,
                 }}
               >
-                Message me directly on{" "}
+                Share your project requirements to begin a structured discussion.
+                You can connect directly via{" "}
                 <Box
                   component="a"
                   href="https://wa.me/918281657534"
@@ -134,14 +134,11 @@ export default function ContactSection() {
                 >
                   WhatsApp
                 </Box>{" "}
-                for a quick discussion, or submit your project details using the form.
-                I personally review every inquiry.
+                for faster alignment, or submit details through the form.
               </Typography>
-
               <Typography variant="body2" sx={{ mb: 4, color: "text.secondary" }}>
-                Registered MSME | Professional Invoicing | Transparent Agreements
+                Projects are handled under a registered MSME framework with structured agreements and professional invoicing.
               </Typography>
-
               <Box sx={{ display: "flex", gap: 2 }}>
                 {socialLinks.map((link) => (
                   <IconButton
@@ -190,6 +187,7 @@ export default function ContactSection() {
                         render={({ field }) => (
                           <TextField
                             {...field}
+                            id="contact-name"
                             fullWidth
                             label="Your Name"
                             autoComplete="name"
@@ -210,6 +208,7 @@ export default function ContactSection() {
                         render={({ field }) => (
                           <TextField
                             {...field}
+                            id="contact-email"
                             fullWidth
                             label="Email Address"
                             autoComplete="email"
@@ -230,6 +229,7 @@ export default function ContactSection() {
                         render={({ field }) => (
                           <TextField
                             {...field}
+                            id="contact-message"
                             fullWidth
                             label="Project Details"
                             autoComplete="off"
@@ -260,7 +260,7 @@ export default function ContactSection() {
                           textTransform: "none",
                         }}
                       >
-                        {isSubmitting ? "Sending..." : "Send Project Details"}
+                        {isSubmitting ? "Submitting..." : "Submit Requirements"}
                       </Button>
                     </Grid>
                   </Grid>

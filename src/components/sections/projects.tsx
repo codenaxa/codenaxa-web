@@ -1,6 +1,5 @@
 "use client";
 
-
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -17,22 +16,20 @@ const projects = [
     title: "SmartMoney Calc",
     category: "Financial Web Application",
     description:
-      "A high-performance financial calculation platform designed to handle complex interest and tax computations instantly. Built with optimized client-side logic for real-time results without server dependency.",
+      "A high-performance financial calculation platform built for instant computations without server dependency.",
     impact:
-      "Delivered sub-second calculations with zero backend load, improving responsiveness and scalability.",
+      "Delivered sub-second calculations with zero backend load.",
     image: "/projects/smartmoney.png",
-    tags: ["Next.js", "TypeScript", "React"],
     link: "https://smartmoneycalc.codenaxa.in",
   },
   {
     title: "ResumeMint AI",
     category: "AI-Powered SaaS Platform",
     description:
-      "An AI-based resume builder that generates ATS-compatible documents with structured schema validation and real-time editing capabilities.",
+      "An AI resume builder generating ATS-compatible documents with real-time editing.",
     impact:
-      "Enabled automated document generation with clean export formatting and scalable backend processing.",
+      "Enabled automated document generation with scalable backend processing.",
     image: "/projects/resumemintai.png",
-    tags: ["MERN", "GenAI", "Node.js"],
     link: "https://resumemintai.codenaxa.in",
   },
 ];
@@ -51,7 +48,8 @@ export default function ProjectsSection() {
         }}
       >
         <Container maxWidth="lg">
-          <Box sx={{ mb: 10 }}>
+          {/* Section Header */}
+          <Box sx={{ mb: 8 }}>
             <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -91,17 +89,18 @@ export default function ProjectsSection() {
                   color: "text.secondary",
                   maxWidth: 700,
                   mt: 3,
-                  fontSize: "1.1rem",
-                  lineHeight: 1.8,
+                  fontSize: "1.05rem",
+                  lineHeight: 1.7,
                 }}
               >
-                Here are production-ready applications I have architected and deployed - focused on performance,
-                scalability, and practical business use.
+                Production-ready applications focused on performance, scalability,
+                and real-world business use.
               </Typography>
             </m.div>
           </Box>
 
-          <Grid container spacing={6}>
+          {/* Projects Grid */}
+          <Grid container spacing={4}>
             {projects.map((project, index) => (
               <Grid size={{ xs: 12, md: 6 }} key={index}>
                 <m.div
@@ -115,47 +114,49 @@ export default function ProjectsSection() {
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      borderRadius: 4,
+                      borderRadius: 3,
                       overflow: "hidden",
                       border: `1px solid ${muiTheme.palette.divider}`,
                       boxShadow: "none",
-                      transition: "all 0.3s ease",
+                      transition: "all 0.25s ease",
                       "&:hover": {
-                        transform: "translateY(-6px)",
+                        transform: "translateY(-4px)",
                         borderColor: "secondary.main",
                       },
                     }}
                   >
+                    {/* Image */}
                     <Box
                       sx={{
                         position: "relative",
                         width: "100%",
-                        aspectRatio: "16/9",
+                        aspectRatio: "4/3",
                         flexShrink: 0,
                       }}
                     >
                       <Image
                         src={project.image}
-                        alt={`${project.title} project screenshot`}
+                        alt={`${project.title} screenshot`}
                         fill
                         sizes="(max-width: 900px) 100vw, 50vw"
                         className="object-cover"
                       />
                     </Box>
 
-                    <Box sx={{ p: 4, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                    {/* Content */}
+                    <Box sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                      {/* Category */}
                       <Box
                         sx={{
                           display: "flex",
                           alignItems: "center",
-                          gap: 1.5,
-                          mb: 2,
+                          gap: 1,
+                          mb: 1,
                         }}
                       >
-                        <Code size={16} color={muiTheme.palette.secondary.main} aria-hidden="true" />
+                        <Code size={14} color={muiTheme.palette.secondary.main} />
                         <Typography
                           variant="caption"
-                          component="p"
                           sx={{
                             fontWeight: 800,
                             color: "secondary.main",
@@ -166,47 +167,50 @@ export default function ProjectsSection() {
                         </Typography>
                       </Box>
 
-                      <Typography variant="h5" component="h3" sx={{ fontWeight: 800, mb: 2 }}>
+                      {/* Title */}
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                          fontWeight: 800,
+                          mb: 1.5,
+                        }}
+                      >
                         {project.title}
                       </Typography>
 
+                      {/* Description + Impact */}
                       <Typography
                         variant="body2"
                         sx={{
                           color: "text.secondary",
-                          lineHeight: 1.7,
+                          lineHeight: 1.6,
                           mb: 2,
                         }}
                       >
-                        {project.description}
+                        {project.description}{" "}
+                        <Box component="span" sx={{ fontWeight: 700 }}>
+                          {project.impact}
+                        </Box>
                       </Typography>
 
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontWeight: 700,
-                          mb: 3,
-                        }}
-                      >
-                        Impact: {project.impact}
-                      </Typography>
-
-                      <Box sx={{ mt: 'auto' }}>
+                      {/* CTA */}
+                      <Box sx={{ mt: "auto" }}>
                         <Button
                           variant="outlined"
                           component="a"
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          endIcon={<ArrowRight size={18} />}
+                          endIcon={<ArrowRight size={16} />}
                           sx={{
                             borderRadius: 2,
                             textTransform: "none",
                             fontWeight: 700,
-                            width: { xs: '100%', sm: 'auto' }
+                            width: { xs: "100%", sm: "auto" },
                           }}
                         >
-                          View Live Project
+                          View Project
                         </Button>
                       </Box>
                     </Box>
