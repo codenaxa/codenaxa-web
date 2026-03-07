@@ -21,12 +21,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const { title, content, coverImage, excerpt, published } = await req.json();
+        const { title, content, coverImage, excerpt, published, metaTitle, metaDescription, metaKeywords } = await req.json();
         await connectDB();
         const id = (await params).id;
 
         // Optional: if title changed, might want to update slug too. Assuming static for now or just updating literal.
-        const updateData: any = { title, content, coverImage, excerpt, published };
+        const updateData: any = { title, content, coverImage, excerpt, published, metaTitle, metaDescription, metaKeywords };
 
         const post = await Post.findByIdAndUpdate(id, updateData, { new: true });
         if (!post) {

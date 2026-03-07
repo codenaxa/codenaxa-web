@@ -16,7 +16,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
     try {
-        const { title, content, coverImage, excerpt, published } = await req.json();
+        const { title, content, coverImage, excerpt, published, metaTitle, metaDescription, metaKeywords } = await req.json();
         await connectDB();
 
         const baseSlug = slugify(title, { lower: true, strict: true });
@@ -36,6 +36,9 @@ export async function POST(req: Request) {
             coverImage,
             excerpt,
             published,
+            metaTitle,
+            metaDescription,
+            metaKeywords,
         });
 
         return NextResponse.json(post, { status: 201 });

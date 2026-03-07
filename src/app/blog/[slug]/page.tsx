@@ -36,6 +36,9 @@ type PostRecord = {
   content: string;
   coverImage?: string;
   excerpt?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeywords?: string;
   createdAt: Date;
   updatedAt?: Date;
 };
@@ -69,17 +72,18 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     };
   }
 
-  const description = post.excerpt || stripHtml(post.content).slice(0, 160);
+  const title = post.metaTitle || `${post.title} | codenaxa`;
+  const description = post.metaDescription || post.excerpt || stripHtml(post.content).slice(0, 160);
   const canonical = `/blog/${post.slug}`;
 
-  return {
-    title: `${post.title} | codenaxa`,
+  const metadata: Metadata = {
+    title,
     description,
     alternates: {
       canonical,
     },
     openGraph: {
-      title: post.title,
+      title: post.metaTitle || post.title,
       description,
       type: "article",
       url: canonical,
@@ -87,11 +91,17 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     },
     twitter: {
       card: post.coverImage ? "summary_large_image" : "summary",
-      title: post.title,
+      title: post.metaTitle || post.title,
       description,
       images: post.coverImage ? [post.coverImage] : undefined,
     },
   };
+
+  if (post.metaKeywords) {
+    metadata.keywords = post.metaKeywords;
+  }
+
+  return metadata;
 }
 
 export default async function BlogPostPage({ params }: { params: PageParams }) {

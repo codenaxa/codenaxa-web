@@ -3,10 +3,13 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface IPost extends Document {
     title: string;
     slug: string;
-    content: string; // HTML content from the rich text editor
+    content: string; // HTML content from the rich text editor or raw HTML
     coverImage?: string;
     excerpt?: string;
     published: boolean;
+    metaTitle?: string;
+    metaDescription?: string;
+    metaKeywords?: string;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -19,6 +22,9 @@ const PostSchema: Schema = new Schema(
         coverImage: { type: String },
         excerpt: { type: String },
         published: { type: Boolean, default: false },
+        metaTitle: { type: String },
+        metaDescription: { type: String },
+        metaKeywords: { type: String },
     },
     { timestamps: true }
 );

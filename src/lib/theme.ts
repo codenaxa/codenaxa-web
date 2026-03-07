@@ -98,55 +98,21 @@ export const lightTheme = responsiveFontSizes(createTheme({
     palette: {
         mode: 'light',
         primary: {
-            main: '#000000',
+            main: '#3B82F6', // Accent
+            dark: '#2563EB', // Hover
         },
         secondary: {
-            main: '#4f46e5',
+            main: '#3B82F6',
+            dark: '#2563EB',
         },
         background: {
-            default: '#ffffff',
-            paper: '#ffffff',
+            default: '#FFFFFF', // Background
+            paper: '#F3F4F6',   // Section background equivalent
         },
         text: {
             primary: '#111827',
-            secondary: '#4b5563',
+            secondary: '#6B7280',
         },
-        divider: 'rgba(0,0,0,0.06)',
-    },
-}));
-
-export const darkTheme = responsiveFontSizes(createTheme({
-    ...baseThemeOptions,
-    palette: {
-        mode: 'dark',
-        primary: {
-            main: '#ffffff',
-        },
-        secondary: {
-            main: '#818cf8',
-            contrastText: '#000000',
-        },
-        background: {
-            default: '#0a0a0a',
-            paper: '#141414',
-        },
-        text: {
-            primary: '#f9fafb',
-            secondary: '#9ca3af',
-        },
-        divider: 'rgba(255,255,255,0.08)',
-    },
-    components: {
-        ...baseThemeOptions.components,
-        MuiCard: {
-            styleOverrides: {
-                root: {
-                    borderRadius: 16,
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    backgroundImage: 'none',
-                },
-            },
-        },
+        divider: '#E5E7EB',
     },
 }));

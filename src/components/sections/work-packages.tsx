@@ -13,55 +13,55 @@ import { Check, Zap, Shield, Layout, Rocket, TrendingUp, Cpu } from "lucide-reac
 import { useTheme as useMuiTheme, alpha } from "@mui/material";
 
 const mainPackages = [
-  {
-    title: "Foundation System",
-    subtitle: "For businesses establishing their digital presence",
-    price: "INR 8K - 15K",
-    icon: <Rocket size={24} />,
-    features: [
-      "Business-ready website",
-      "Mobile responsive experience",
-      "Lead capture setup",
-      "Basic performance optimization"
-    ]
-  },
-  {
-    title: "Growth Platform",
-    subtitle: "For businesses ready to streamline operations",
-    price: "INR 20K - 35K",
-    icon: <TrendingUp size={24} />,
-    featured: true,
-    features: [
-      "Custom web application",
-      "Admin dashboard",
-      "Workflow integrations",
-      "Performance tuning"
-    ]
-  },
-  {
-    title: "Advanced Platform",
-    subtitle: "For startups and scalable product ideas",
-    price: "INR 45K+",
-    icon: <Cpu size={24} />,
-    features: [
-      "Full-stack architecture",
-      "Authentication systems",
-      "API integrations",
-      "Scalable backend"
-    ]
-  },
-  {
-    title: "Strategic Build",
-    subtitle: "For unique or high-complexity systems",
-    price: "Custom Scope",
-    icon: <Cpu size={24} />,
-    features: [
-      "Tailored architecture",
-      "Advanced integrations",
-      "Business-specific workflows",
-      "Scalable infrastructure"
-    ]
-  }
+    {
+        title: "Foundation System",
+        subtitle: "For businesses establishing their digital presence",
+        price: "INR 8K - 15K",
+        icon: <Rocket size={24} />,
+        features: [
+            "Business-ready website",
+            "Mobile responsive experience",
+            "Lead capture setup",
+            "Basic performance optimization"
+        ]
+    },
+    {
+        title: "Growth Platform",
+        subtitle: "For businesses ready to streamline operations",
+        price: "INR 20K - 35K",
+        icon: <TrendingUp size={24} />,
+        featured: true,
+        features: [
+            "Custom web application",
+            "Admin dashboard",
+            "Workflow integrations",
+            "Performance tuning"
+        ]
+    },
+    {
+        title: "Advanced Platform",
+        subtitle: "For startups and scalable product ideas",
+        price: "INR 45K+",
+        icon: <Cpu size={24} />,
+        features: [
+            "Full-stack architecture",
+            "Authentication systems",
+            "API integrations",
+            "Scalable backend"
+        ]
+    },
+    {
+        title: "Strategic Build",
+        subtitle: "For unique or high-complexity systems",
+        price: "Custom Scope",
+        icon: <Cpu size={24} />,
+        features: [
+            "Tailored architecture",
+            "Advanced integrations",
+            "Business-specific workflows",
+            "Scalable infrastructure"
+        ]
+    }
 ];
 
 const miniPackages = [
@@ -102,7 +102,7 @@ export default function WorkPackages() {
                                     mb: 2,
                                 }}
                             >
-                               Engagement Models
+                                Engagement Models
                             </Typography>
 
                             <Typography
@@ -113,7 +113,7 @@ export default function WorkPackages() {
                                     fontSize: { xs: "2.25rem", sm: "2.75rem", md: "3.5rem" },
                                 }}
                             >
-                             Structured Development Approaches
+                                Structured Development Approaches
 
                             </Typography>
 
@@ -147,8 +147,8 @@ export default function WorkPackages() {
                                         sx={{
                                             height: "100%",
                                             borderRadius: 4,
-                                            border: pkg.featured ? `2px solid ${muiTheme.palette.secondary.main}` : `1px solid ${muiTheme.palette.divider}`,
-                                            boxShadow: pkg.featured ? `0 20px 40px ${alpha(muiTheme.palette.secondary.main, 0.1)}` : "none",
+                                            border: `1px solid ${muiTheme.palette.divider}`,
+                                            boxShadow: "none",
                                             position: 'relative',
                                             overflow: 'visible',
                                             transition: 'transform 0.3s ease',
@@ -157,27 +157,6 @@ export default function WorkPackages() {
                                             }
                                         }}
                                     >
-                                        {pkg.featured && (
-                                            <Box
-                                                sx={{
-                                                    position: 'absolute',
-                                                    top: -15,
-                                                    left: '50%',
-                                                    transform: 'translateX(-50%)',
-                                                    bgcolor: 'secondary.main',
-                                                    color: 'white',
-                                                    px: 2,
-                                                    py: 0.5,
-                                                    borderRadius: 2,
-                                                    fontSize: '0.75rem',
-                                                    fontWeight: 800,
-                                                    textTransform: 'uppercase',
-                                                    letterSpacing: '0.05em'
-                                                }}
-                                            >
-                                                Most Popular
-                                            </Box>
-                                        )}
                                         <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
                                             <Box sx={{ color: 'secondary.main', mb: 2 }}>{pkg.icon}</Box>
                                             <Typography variant="h5" component="h3" sx={{ fontWeight: 800, mb: 1 }}>

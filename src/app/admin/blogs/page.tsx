@@ -16,63 +16,6 @@ import {
 } from "@mui/material";
 import { Edit, Trash2, Plus, UploadCloud, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { storage } from "@/lib/firebase";
-import { getDownloadURL, ref, uploadBytesResumable, uploadBytes } from "firebase/storage";
-
-const MenuBar = ({ editor }: { editor: any }) => {
-    if (!editor) {
-        return null;
-    }
-
-    return (
-        <Box sx={{ borderBottom: '1px solid', borderColor: 'divider', p: 1, display: 'flex', gap: 1, flexWrap: 'wrap', mb: 1, bgcolor: 'background.paper' }}>
-            <Button size="small" variant={editor.isActive('bold') ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleBold().run()}>Bold</Button>
-            <Button size="small" variant={editor.isActive('italic') ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleItalic().run()}>Italic</Button>
-            <Button size="small" variant={editor.isActive('strike') ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleStrike().run()}>Strike</Button>
-            <Button size="small" variant={editor.isActive('heading', { level: 2 }) ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}>H2</Button>
-            <Button size="small" variant={editor.isActive('heading', { level: 3 }) ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}>H3</Button>
-            <Button size="small" variant={editor.isActive('bulletList') ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleBulletList().run()}>Bullets</Button>
-            <Button size="small" variant={editor.isActive('orderedList') ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleOrderedList().run()}>Ordered</Button>
-            <Button size="small" variant={editor.isActive('blockquote') ? 'contained' : 'outlined'} onClick={() => editor.chain().focus().toggleBlockquote().run()}>Quote</Button>
-            <Button size="small" variant="outlined" onClick={() => editor.chain().focus().setHorizontalRule().run()}>Divider</Button>
-            <Button size="small" variant="outlined" onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>Undo</Button>
-            <Button size="small" variant="outlined" onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}>Redo</Button>
-        </Box>
-    );
-};
-
-function Tiptap({ content, onChange }: { content: string; onChange: (content: string) => void }) {
-    const editor = useEditor({
-        extensions: [StarterKit],
-        content: content,
-        immediatelyRender: false,
-        onUpdate: ({ editor }) => {
-            onChange(editor.getHTML());
-        },
-        editorProps: {
-            attributes: {
-                class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl focus:outline-none max-w-none',
-                style: 'min-height: 300px; padding: 1rem;'
-            }
-        }
-    });
-
-    // Sync external content changes into the editor when switching posts
-    useEffect(() => {
-        if (editor && content !== editor.getHTML()) {
-            editor.commands.setContent(content);
-        }
-    }, [content, editor]);
-
-    return (
-        <Box sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1, overflow: 'hidden' }}>
-            <MenuBar editor={editor} />
-            <EditorContent editor={editor} />
-        </Box>
-    );
-}
 
 export default function AdminBlogsPage() {
     const [posts, setPosts] = useState<any[]>([]);
@@ -83,6 +26,9 @@ export default function AdminBlogsPage() {
         coverImage: "",
         excerpt: "",
         published: false,
+        metaTitle: "",
+        metaDescription: "",
+        metaKeywords: "",
     });
     const [isCreating, setIsCreating] = useState(false);
     const [uploading, setUploading] = useState(false);
@@ -154,7 +100,7 @@ export default function AdminBlogsPage() {
                     setIsCreating(false);
                 }
 
-                setFormData({ title: "", content: "", coverImage: "", excerpt: "", published: false });
+                setFormData({ title: "", content: "", coverImage: "", excerpt: "", published: false, metaTitle: "", metaDescription: "", metaKeywords: "" });
                 setCoverPreview(null);
                 fetchPosts();
             } else {
@@ -197,6 +143,9 @@ export default function AdminBlogsPage() {
             coverImage: post.coverImage || "",
             excerpt: post.excerpt || "",
             published: post.published,
+            metaTitle: post.metaTitle || "",
+            metaDescription: post.metaDescription || "",
+            metaKeywords: post.metaKeywords || "",
         });
         setCoverPreview(post.coverImage || null);
         setIsCreating(true);
@@ -205,7 +154,7 @@ export default function AdminBlogsPage() {
     const cancelEdit = () => {
         setEditingPost(null);
         setIsCreating(false);
-        setFormData({ title: "", content: "", coverImage: "", excerpt: "", published: false });
+        setFormData({ title: "", content: "", coverImage: "", excerpt: "", published: false, metaTitle: "", metaDescription: "", metaKeywords: "" });
         setCoverPreview(null);
     };
 
@@ -378,8 +327,45 @@ export default function AdminBlogsPage() {
                                 </Grid>
 
                                 <Grid size={{ xs: 12 }}>
-                                    <Typography variant="subtitle2" sx={{ mb: 1 }}>Rich Content Editor (Accepts HTML/Images)</Typography>
-                                    <Tiptap content={formData.content} onChange={(html) => setFormData({ ...formData, content: html })} />
+                                    <TextField
+                                        fullWidth
+                                        label="Meta Title (SEO)"
+                                        value={formData.metaTitle}
+                                        onChange={(e) => setFormData({ ...formData, metaTitle: e.target.value })}
+                                        placeholder="Overrides default title tag"
+                                    />
+                                </Grid>
+                                <Grid size={{ xs: 12 }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Meta Description (SEO)"
+                                        value={formData.metaDescription}
+                                        onChange={(e) => setFormData({ ...formData, metaDescription: e.target.value })}
+                                        multiline
+                                        rows={2}
+                                        placeholder="Overrides default description tag"
+                                    />
+                                </Grid>
+                                <Grid size={{ xs: 12 }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Meta Keywords (SEO)"
+                                        value={formData.metaKeywords}
+                                        onChange={(e) => setFormData({ ...formData, metaKeywords: e.target.value })}
+                                        placeholder="e.g. scalable web, saas, performance"
+                                    />
+                                </Grid>
+                                <Grid size={{ xs: 12 }}>
+                                    <Typography variant="subtitle2" sx={{ mb: 1 }}>Content Editor (Pure HTML & CSS)</Typography>
+                                    <TextField
+                                        fullWidth
+                                        value={formData.content}
+                                        onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                                        multiline
+                                        minRows={15}
+                                        placeholder="<h1>Your Title</h1><p>Your content here</p><style>h1 { color: red; }</style>"
+                                        sx={{ fontFamily: 'monospace' }}
+                                    />
                                 </Grid>
 
                                 <Grid size={{ xs: 12 }}>

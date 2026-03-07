@@ -49,7 +49,7 @@ export default function ProjectsSection() {
       >
         <Container maxWidth="lg">
           {/* Section Header */}
-          <Box sx={{ mb: 8 }}>
+          <Box sx={{ mb: 8, textAlign: "center" }}>
             <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -88,6 +88,7 @@ export default function ProjectsSection() {
                 sx={{
                   color: "text.secondary",
                   maxWidth: 700,
+                  mx: "auto",
                   mt: 3,
                   fontSize: "1.05rem",
                   lineHeight: 1.7,
@@ -102,7 +103,7 @@ export default function ProjectsSection() {
           {/* Projects Grid */}
           <Grid container spacing={4}>
             {projects.map((project, index) => (
-              <Grid size={{ xs: 12, md: 6 }} key={index}>
+              <Grid size={{ xs: 12, sm: 12, md: 6, lg: 4 }} key={index}>
                 <m.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +112,8 @@ export default function ProjectsSection() {
                 >
                   <Card
                     sx={{
-                      height: "100%",
+                      height: { xs: "auto", md: "460px", lg: "520px" },
+                      minHeight: { md: "420px" },
                       display: "flex",
                       flexDirection: "column",
                       borderRadius: 3,
@@ -130,7 +132,7 @@ export default function ProjectsSection() {
                       sx={{
                         position: "relative",
                         width: "100%",
-                        aspectRatio: "4/3",
+                        height: { xs: 240, sm: 280, md: 200, lg: 220 },
                         flexShrink: 0,
                       }}
                     >
@@ -138,7 +140,7 @@ export default function ProjectsSection() {
                         src={project.image}
                         alt={`${project.title} screenshot`}
                         fill
-                        sizes="(max-width: 900px) 100vw, 50vw"
+                        sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                         className="object-cover"
                       />
                     </Box>

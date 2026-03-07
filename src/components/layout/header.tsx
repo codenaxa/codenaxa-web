@@ -17,12 +17,12 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
   useTheme as useMuiTheme,
   alpha
 } from "@mui/material";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { useAuth } from "@/components/auth-provider";
-import { cn } from "@/lib/utils";
+
 
 const navLinks = [
   { href: "/", label: "Home", id: "home" },
@@ -125,7 +125,7 @@ export default function Header() {
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ height: { xs: 70, md: 90 }, justifyContent: 'space-between' }}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 no-underline">
+          <Link href="/" className="flex items-center gap-2 no-underline" style={{ textDecoration: 'none' }}>
             <Box sx={{ position: 'relative', width: 36, height: 36 }}>
               <Image
                 src="/logo.png"
@@ -136,9 +136,9 @@ export default function Header() {
                 className="object-contain"
               />
             </Box>
-            <span className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-neutral-950 to-neutral-500 dark:from-white dark:to-neutral-400 font-satoshi">
+            <Typography component="span" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', letterSpacing: '-0.02em', fontFamily: 'var(--font-display), sans-serif' }}>
               codenaxa
-            </span>
+            </Typography>
           </Link>
 
           {/* Desktop Nav */}
@@ -154,12 +154,14 @@ export default function Header() {
                 className="no-underline"
                 aria-current={isLinkActive(link.href, link.id) ? "page" : undefined}
               >
-                <span className={cn(
-                  "text-[15px] font-semibold transition-all duration-200 relative py-1",
-                  isLinkActive(link.href, link.id)
-                    ? "text-neutral-950 dark:text-white"
-                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white"
-                )}>
+                <span style={{
+                  color: isLinkActive(link.href, link.id) ? muiTheme.palette.text.primary : muiTheme.palette.text.secondary,
+                  fontWeight: isLinkActive(link.href, link.id) ? 700 : 600,
+                  fontSize: '15px',
+                  transition: 'color 0.2s ease',
+                  position: 'relative',
+                  padding: '4px 0',
+                }}>
                   {link.label}
                   {isLinkActive(link.href, link.id) && (
                     <Box
@@ -179,7 +181,7 @@ export default function Header() {
               </Link>
             ))}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, ml: 2 }}>
-              <ThemeToggle />
+
               <Button
                 variant="contained"
                 color="primary"
@@ -201,12 +203,11 @@ export default function Header() {
 
           {/* Mobile Right Side */}
           <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 1 }}>
-            <ThemeToggle />
+
             <IconButton
-              color="inherit"
               aria-label="Open navigation menu"
               onClick={handleDrawerToggle}
-              sx={{ ml: 1 }}
+              sx={{ ml: 1, color: 'text.primary' }}
             >
               <Menu size={24} aria-hidden="true" />
             </IconButton>
@@ -231,8 +232,10 @@ export default function Header() {
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
-          <span className="text-xl font-bold font-satoshi">codenaxa</span>
-          <IconButton onClick={handleDrawerToggle} color="inherit" aria-label="Close navigation menu">
+          <Typography component="span" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', fontFamily: 'var(--font-display), sans-serif' }}>
+            codenaxa
+          </Typography>
+          <IconButton onClick={handleDrawerToggle} sx={{ color: 'text.primary' }} aria-label="Close navigation menu">
             <X size={24} aria-hidden="true" />
           </IconButton>
         </Box>
@@ -254,6 +257,7 @@ export default function Header() {
                   primaryTypographyProps={{
                     fontWeight: isLinkActive(link.href, link.id) ? 700 : 500,
                     fontSize: '18px',
+                    color: isLinkActive(link.href, link.id) ? 'text.primary' : 'text.secondary',
                     fontFamily: 'var(--font-display), var(--font-manrope), sans-serif'
                   }}
                 />
