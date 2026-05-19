@@ -13,24 +13,14 @@ import { useTheme as useMuiTheme } from "@mui/material";
 
 const projects = [
   {
-    title: "SmartMoney Calc",
-    category: "Financial Web Platform",
+    title: "PSC Malayali",
+    category: "Kerala PSC Learning Platform",
     description:
-      "A high-performance financial calculation platform built for instant computations without server dependency.",
+      "A fast and responsive learning website for Kerala PSC aspirants.",
     impact:
-      "Delivered sub-second calculations with zero backend load.",
-    image: "/projects/smartmoney.png",
-    link: "https://smartmoneycalc.codenaxa.in",
-  },
-  {
-    title: "ResumeMint AI",
-    category: "AI-Powered SaaS Platform",
-    description:
-      "An AI resume builder generating ATS-compatible documents with real-time editing.",
-    impact:
-      "Enabled automated document generation with scalable backend processing.",
-    image: "/projects/resumemintai.png",
-    link: "https://resumemintai.codenaxa.in",
+      "Built with high-performance SEO and modern web standards.",
+    image: "/projects/psc-malayali.png",
+    link: "https://psc-malayali.vercel.app/",
   },
 ];
 
@@ -44,7 +34,8 @@ export default function ProjectsSection() {
         component="section"
         aria-labelledby="projects-heading"
         sx={{
-          py: { xs: 12, md: 16 },
+          py: { xs: 16, md: 24 },
+          background: "#050505",
         }}
       >
         <Container maxWidth="lg">
@@ -75,9 +66,10 @@ export default function ProjectsSection() {
                 variant="h2"
                 id="projects-heading"
                 sx={{
-                  fontWeight: 800,
-                  fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
-                  lineHeight: 1.2,
+                  fontWeight: 600,
+                  fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
+                  fontFamily: "var(--font-playfair), serif",
+                  lineHeight: 1.1,
                 }}
               >
                 Real Systems Built & Deployed
@@ -116,14 +108,15 @@ export default function ProjectsSection() {
                       minHeight: { md: "420px" },
                       display: "flex",
                       flexDirection: "column",
-                      borderRadius: 3,
+                      borderRadius: "6px",
+                      bgcolor: "transparent",
                       overflow: "hidden",
-                      border: `1px solid ${muiTheme.palette.divider}`,
+                      border: `1px solid rgba(255,255,255,0.1)`,
                       boxShadow: "none",
-                      transition: "all 0.25s ease",
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease",
                       "&:hover": {
-                        transform: "translateY(-4px)",
-                        borderColor: "secondary.main",
+                        transform: "translateY(-10px)",
+                        borderColor: "rgba(255,255,255,0.5)",
                       },
                     }}
                   >
@@ -156,13 +149,14 @@ export default function ProjectsSection() {
                           mb: 1,
                         }}
                       >
-                        <Code size={14} color={muiTheme.palette.secondary.main} />
+                        <Code size={14} color="rgba(255,255,255,0.7)" />
                         <Typography
                           variant="caption"
                           sx={{
-                            fontWeight: 800,
-                            color: "secondary.main",
+                            fontWeight: 600,
+                            color: "text.secondary",
                             textTransform: "uppercase",
+                            letterSpacing: "0.1em",
                           }}
                         >
                           {project.category}
@@ -174,8 +168,10 @@ export default function ProjectsSection() {
                         variant="h6"
                         component="h3"
                         sx={{
-                          fontWeight: 800,
-                          mb: 1.5,
+                          fontWeight: 600,
+                          fontFamily: "var(--font-playfair), serif",
+                          fontSize: "1.75rem",
+                          mb: 2,
                         }}
                       >
                         {project.title}
@@ -206,10 +202,18 @@ export default function ProjectsSection() {
                           rel="noopener noreferrer"
                           endIcon={<ArrowRight size={16} />}
                           sx={{
-                            borderRadius: 2,
-                            textTransform: "none",
-                            fontWeight: 700,
+                            borderRadius: "6px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                            fontWeight: 500,
+                            borderWidth: '1px',
+                            borderColor: 'text.primary',
+                            color: 'text.primary',
                             width: { xs: "100%", sm: "auto" },
+                            "&:hover": {
+                                bgcolor: "text.primary",
+                                color: "background.default",
+                            }
                           }}
                         >
                           View Project

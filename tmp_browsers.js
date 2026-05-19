@@ -1,1 +1,0 @@
-const browserslist = require('browserslist');

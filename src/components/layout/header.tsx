@@ -28,7 +28,7 @@ const navLinks = [
   { href: "/", label: "Home", id: "home" },
   { href: "/#about", label: "About", id: "about" },
   { href: "/#services", label: "Services", id: "services" },
-  // { href: "/#projects", label: "Projects", id: "projects" },
+  { href: "/#projects", label: "Projects", id: "projects" },
   { href: "/#work-packages", label: "Packages", id: "work-packages" },
   { href: "/blog", label: "Blog", id: "blog" },
   { href: "/#contact", label: "Contact", id: "contact" },
@@ -111,10 +111,8 @@ export default function Header() {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: isScrolled
-          ? alpha(muiTheme.palette.background.default, 0.8)
-          : 'transparent',
-        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+        backgroundColor: alpha(muiTheme.palette.background.default, 0.5),
+        backdropFilter: 'blur(12px)',
         boxShadow: 'none',
         color: muiTheme.palette.text.primary,
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -136,7 +134,7 @@ export default function Header() {
                 className="object-contain"
               />
             </Box>
-            <Typography component="span" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', letterSpacing: '-0.02em', fontFamily: 'var(--font-display), sans-serif' }}>
+            <Typography component="span" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', letterSpacing: '0.05em', fontFamily: 'var(--font-playfair), serif' }}>
               codenaxa
             </Typography>
           </Link>
@@ -154,49 +152,61 @@ export default function Header() {
                 className="no-underline"
                 aria-current={isLinkActive(link.href, link.id) ? "page" : undefined}
               >
-                <span style={{
-                  color: isLinkActive(link.href, link.id) ? muiTheme.palette.text.primary : muiTheme.palette.text.secondary,
-                  fontWeight: isLinkActive(link.href, link.id) ? 700 : 600,
+                <Box component="span" sx={{
+                  color: muiTheme.palette.text.primary,
+                  fontWeight: isLinkActive(link.href, link.id) ? 700 : 500,
                   fontSize: '15px',
-                  transition: 'color 0.2s ease',
                   position: 'relative',
+                  display: 'inline-block',
                   padding: '4px 0',
+                  opacity: isLinkActive(link.href, link.id) ? 1 : 0.7,
+                  transition: 'opacity 0.3s ease',
+                  fontFamily: 'var(--font-inter), sans-serif'
                 }}>
                   {link.label}
-                  {isLinkActive(link.href, link.id) && (
-                    <Box
-                      component="span"
-                      sx={{
-                        position: 'absolute',
-                        bottom: -4,
-                        left: 0,
+                  <Box
+                    component="span"
+                    sx={{
+                      position: 'absolute',
+                      bottom: -2,
+                      left: 0,
+                      width: isLinkActive(link.href, link.id) ? '100%' : '0%',
+                      height: 2,
+                      backgroundColor: 'primary.main',
+                      transition: 'width 0.3s ease',
+                      '.no-underline:hover &': {
                         width: '100%',
-                        height: 2,
-                        backgroundColor: 'primary.main',
-                        borderRadius: 1
-                      }}
-                    />
-                  )}
-                </span>
+                      }
+                    }}
+                  />
+                </Box>
               </Link>
             ))}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, ml: 2 }}>
 
               <Button
-                variant="contained"
+                variant="outlined"
                 color="primary"
                 component={Link}
                 href="/#contact"
                 sx={{
-                  borderRadius: '10px',
+                  borderRadius: '6px',
                   px: 4,
                   py: 1,
-                  fontWeight: 700,
+                  fontWeight: 500,
                   fontSize: '14px',
-                  textTransform: 'none'
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  borderWidth: '1px',
+                  borderColor: 'primary.main',
+                  color: 'primary.main',
+                  '&:hover': {
+                    backgroundColor: 'primary.main',
+                    color: 'background.default',
+                  }
                 }}
               >
-                Inquiry
+                Let's Talk
               </Button>
             </Box>
           </Box>
@@ -232,7 +242,7 @@ export default function Header() {
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
-          <Typography component="span" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', fontFamily: 'var(--font-display), sans-serif' }}>
+          <Typography component="span" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', fontFamily: 'var(--font-playfair), serif' }}>
             codenaxa
           </Typography>
           <IconButton onClick={handleDrawerToggle} sx={{ color: 'text.primary' }} aria-label="Close navigation menu">
@@ -255,10 +265,13 @@ export default function Header() {
                 <ListItemText
                   primary={link.label}
                   primaryTypographyProps={{
-                    fontWeight: isLinkActive(link.href, link.id) ? 700 : 500,
-                    fontSize: '18px',
-                    color: isLinkActive(link.href, link.id) ? 'text.primary' : 'text.secondary',
-                    fontFamily: 'var(--font-display), var(--font-manrope), sans-serif'
+                    sx: {
+                      fontWeight: 500,
+                      fontSize: '18px',
+                      color: 'text.primary',
+                      opacity: isLinkActive(link.href, link.id) ? 1 : 0.7,
+                      fontFamily: 'var(--font-inter), sans-serif'
+                    }
                   }}
                 />
               </ListItemButton>
@@ -267,14 +280,21 @@ export default function Header() {
         </List>
         <Button
           fullWidth
-          variant="contained"
+          variant="outlined"
           size="large"
-          sx={{ py: 2, borderRadius: 3, fontWeight: 700 }}
+          sx={{ 
+            py: 2, 
+            borderRadius: '6px', 
+            fontWeight: 500,
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+            borderWidth: '1px'
+          }}
           component={Link}
           href="/#contact"
           onClick={handleDrawerToggle}
         >
-          Submit Scope
+          Let's Talk
         </Button>
       </Drawer>
     </AppBar>

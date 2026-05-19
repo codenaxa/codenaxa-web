@@ -22,9 +22,9 @@ const AboutSection = dynamic(() => import("@/components/sections/about"), {
 const ServicesSection = dynamic(() => import("@/components/sections/services"), {
     loading: () => <SectionSkeleton height="520px" />,
 });
-// const ProjectsSection = dynamic(() => import("@/components/sections/projects"), {
-//     loading: () => <SectionSkeleton height="520px" />,
-// });
+const ProjectsSection = dynamic(() => import("@/components/sections/projects"), {
+    loading: () => <SectionSkeleton height="520px" />,
+});
 const WorkPackages = dynamic(() => import("@/components/sections/work-packages"), {
     loading: () => <SectionSkeleton height="600px" />,
 });
@@ -46,7 +46,7 @@ export default function BelowFold() {
         <>
             <AboutSection />
             <ServicesSection />
-            {/* <ProjectsSection /> */}
+            <ProjectsSection />
             <WorkPackages />
             <TestimonialsSection />
             <FAQSection />

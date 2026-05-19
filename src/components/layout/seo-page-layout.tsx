@@ -52,7 +52,7 @@ export default function SEOPageLayout({ title, subtitle, content, faqs, schemas,
       )}
       <Header />
       <main id="main-content" className="flex-1">
-        <Box sx={{ py: { xs: 12, md: 16 }, borderBottom: `1px solid ${muiTheme.palette.divider}` }}>
+        <Box sx={{ py: { xs: 16, md: 24 }, bgcolor: "#050505", borderBottom: `1px solid rgba(255,255,255,0.05)` }}>
           <Container maxWidth="lg">
             <LazyMotion features={domAnimation}>
               <m.div
@@ -63,10 +63,10 @@ export default function SEOPageLayout({ title, subtitle, content, faqs, schemas,
                 <Typography
                   variant="h1"
                   sx={{
-                    fontWeight: 800,
-                    mb: 3,
+                    fontWeight: 600,
+                    mb: 4,
                     fontSize: { xs: "2.5rem", md: "4rem" },
-                    fontFamily: "var(--font-display), var(--font-manrope), sans-serif",
+                    fontFamily: "var(--font-playfair), serif",
                     maxWidth: "900px"
                   }}
                 >
@@ -99,12 +99,12 @@ export default function SEOPageLayout({ title, subtitle, content, faqs, schemas,
                 </Box>
 
                 {relatedLinks && relatedLinks.length > 0 && (
-                  <Box key="related-links-section" sx={{ mt: 8, p: 3, bgcolor: alpha(muiTheme.palette.secondary.main, 0.05), borderRadius: 3, border: '1px solid', borderColor: alpha(muiTheme.palette.secondary.main, 0.1) }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5, fontSize: '1.1rem' }}>Interested in more?</Typography>
+                  <Box key="related-links-section" sx={{ mt: 8, p: 4, bgcolor: "rgba(255,255,255,0.02)", borderRadius: "6px", border: '1px solid', borderColor: "rgba(255,255,255,0.1)" }}>
+                    <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: "var(--font-playfair), serif", mb: 2, fontSize: '1.25rem' }}>Interested in more?</Typography>
                     <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
                       {relatedLinks.map((link, idx) => (
                         <Box component="li" key={idx}>
-                          <Link href={link.href} className="text-secondary-main hover:underline flex items-center gap-2">
+                          <Link href={link.href} style={{ color: muiTheme.palette.text.primary, textDecoration: 'none' }} className="hover:underline flex items-center gap-2">
                             <span>→</span> {link.label}
                           </Link>
                         </Box>
@@ -119,10 +119,10 @@ export default function SEOPageLayout({ title, subtitle, content, faqs, schemas,
                   <Typography
                     variant="h2"
                     sx={{
-                      fontWeight: 800,
+                      fontWeight: 600,
                       mb: 6,
-                      fontSize: { xs: "2rem", md: "2.5rem" },
-                      fontFamily: "var(--font-display), var(--font-manrope), sans-serif",
+                      fontSize: { xs: "2rem", md: "3rem" },
+                      fontFamily: "var(--font-playfair), serif",
                     }}
                   >
                     Frequently Asked <Box component="span" sx={{ color: "secondary.main" }}>Questions</Box>
@@ -132,15 +132,14 @@ export default function SEOPageLayout({ title, subtitle, content, faqs, schemas,
                       <Accordion
                         key={index}
                         sx={{
-                          bgcolor: alpha(muiTheme.palette.background.paper, 0.4),
+                          bgcolor: "transparent",
                           backgroundImage: "none",
-                          borderRadius: "16px !important",
-                          border: `1px solid ${muiTheme.palette.divider}`,
+                          borderRadius: "0 !important",
+                          borderBottom: `1px solid rgba(255,255,255,0.1)`,
                           boxShadow: "none",
                           "&:before": { display: "none" },
                           "&.Mui-expanded": {
-                            borderColor: "secondary.main",
-                            bgcolor: alpha(muiTheme.palette.secondary.main, 0.02),
+                            bgcolor: "rgba(255,255,255,0.02)",
                           },
                         }}
                       >
@@ -148,7 +147,7 @@ export default function SEOPageLayout({ title, subtitle, content, faqs, schemas,
                           expandIcon={<Plus size={20} style={{ color: muiTheme.palette.secondary.main }} />}
                           sx={{ px: 4, py: 1 }}
                         >
-                          <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.1rem", fontFamily: "var(--font-display), var(--font-manrope), sans-serif" }}>
+                          <Typography component="h3" sx={{ fontWeight: 600, fontSize: "1.25rem", fontFamily: "var(--font-playfair), serif" }}>
                             {faq.question}
                           </Typography>
                         </AccordionSummary>

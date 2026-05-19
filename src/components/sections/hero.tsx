@@ -5,9 +5,10 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useTheme as useMuiTheme, alpha } from "@mui/material";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   const muiTheme = useMuiTheme();
@@ -32,15 +33,18 @@ Can you share your pricing, timeline, and what’s included?`;
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        background:
-          muiTheme.palette.mode === "light"
-            ? "radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.03) 0%, transparent 40%)"
-            : "radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%)",
+        background: "#050505",
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
-          <Grid size={{ xs: 12, md: 7 }}>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center" justifyContent="center">
+          <Grid size={{ xs: 12, md: 10 }} sx={{ textAlign: "center" }}>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
 
             {/* Identity Badge */}
             <Box
@@ -69,57 +73,64 @@ Can you share your pricing, timeline, and what’s included?`;
                 Hotel Booking | Restaurant Systems | Clinic Systems
               </Typography>
             </Box>
+            </motion.div>
 
             {/* Headline */}
-            <Typography
-              variant="h1"
-              id="hero-heading"
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.5rem",
-                  md: "3.2rem",
-                  lg: "4rem",
-                },
-                fontWeight: 800,
-                lineHeight: 1.15,
-                mb: 3,
-                color: "text.primary",
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Custom Websites for{" "}
-              <Box component="span" sx={{ color: "secondary.main" }}>
-                Small Business
-              </Box>{" "}
-              Built in Kerala
-            </Typography>
+              <Typography
+                variant="h1"
+                id="hero-heading"
+                sx={{
+                  fontSize: {
+                    xs: "3rem",
+                    sm: "4rem",
+                    md: "5rem",
+                    lg: "6rem",
+                  },
+                  fontWeight: 600,
+                  lineHeight: 1.1,
+                  mb: 4,
+                  color: "text.primary",
+                }}
+              >
+                Digital Experiences
+                <br />
+                <Box component="span" sx={{ color: "secondary.main", fontStyle: "italic", fontWeight: 400 }}>
+                  Crafted With Precision
+                </Box>
+              </Typography>
+            </motion.div>
 
             {/* Description */}
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: "1rem", md: "1.2rem" },
-                color: "text.secondary",
-                mb: 4,
-                fontWeight: 500,
-                lineHeight: 1.8,
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
-              Build professional booking systems, online order platforms, and e-commerce stores starting at ₹8,000. Specialized solutions for hotels, clinics, and shops to increase bookings and automate sales.
-            </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: { xs: "1.1rem", md: "1.3rem" },
+                  color: "text.secondary",
+                  mb: 6,
+                  maxWidth: "600px",
+                  mx: "auto",
+                  fontWeight: 400,
+                  lineHeight: 1.8,
+                }}
+              >
+                We build elegant booking systems, e-commerce stores, and sophisticated web applications tailored for modern businesses.
+              </Typography>
+            </motion.div>
 
-            {/* MSME Trust Layer */}
-            <Box
-              sx={{
-                display: "inline-flex",
-                alignItems: "center",
-                px: 2.5,
-                py: 1.2,
-                borderRadius: 3,
-                border: `1px solid ${muiTheme.palette.divider}`,
-                bgcolor: alpha(muiTheme.palette.secondary.main, 0.05),
-                mb: 6,
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
             >
               <Typography
                 variant="body2"
@@ -130,54 +141,70 @@ Can you share your pricing, timeline, and what’s included?`;
               >
                 Operating under a registered MSME entity with structured delivery and professional invoicing
               </Typography>
-            </Box>
+            </motion.div>
 
             {/* CTA */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" },
-                gap: 3,
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             >
-              <Button
-                variant="contained"
-                size="large"
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                startIcon={<MessageCircle size={20} />}
+              <Box
                 sx={{
-                  px: 4,
-                  py: 2,
-                  fontSize: "1.1rem",
-                  borderRadius: 3,
-                  color: "white",
-                  bgcolor: "#075E54",
-                  "&:hover": {
-                    bgcolor: "#107C6F",
-                  },
+                  display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
+                  gap: 3,
+                  justifyContent: "center",
                 }}
               >
-                Discuss Your Project
-              </Button>
+                <Button
+                  variant="contained"
+                  size="large"
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    px: 5,
+                    py: 2,
+                    fontSize: "1rem",
+                    borderRadius: "6px",
+                    color: "background.default",
+                    bgcolor: "text.primary",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                    "&:hover": {
+                      bgcolor: "secondary.main",
+                    },
+                  }}
+                >
+                  Start a Project
+                </Button>
 
-              <Button
-                variant="outlined"
-                size="large"
-                component={Link}
-                href="/#projects"
-                endIcon={<ArrowRight size={18} />}
-                sx={{
-                  px: 6,
-                  py: 2,
-                  fontSize: "1.1rem",
-                  borderRadius: 3,
-                }}
-              >
-                View My Work
-              </Button>
-            </Box>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  component={Link}
+                  href="/#projects"
+                  endIcon={<ArrowRight size={18} />}
+                  sx={{
+                    px: 5,
+                    py: 2,
+                    fontSize: "1rem",
+                    borderRadius: "6px",
+                    borderColor: "text.primary",
+                    color: "text.primary",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                    "&:hover": {
+                      bgcolor: "text.primary",
+                      color: "background.default",
+                    }
+                  }}
+                >
+                  View Work
+                </Button>
+              </Box>
+            </motion.div>
 
           </Grid>
         </Grid>

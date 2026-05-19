@@ -53,9 +53,9 @@ export default function FAQSection() {
         component="section"
         aria-labelledby="faq-heading"
         sx={{
-          py: { xs: 12, md: 16 },
-          bgcolor: "background.default",
-          borderTop: `1px solid ${muiTheme.palette.divider}`,
+          py: { xs: 16, md: 24 },
+          bgcolor: "#050505",
+          borderTop: `1px solid rgba(255,255,255,0.05)`,
         }}
       >
         <Container maxWidth="md">
@@ -70,10 +70,10 @@ export default function FAQSection() {
                 variant="h2"
                 id="faq-heading"
                 sx={{
-                  fontWeight: 800,
-                  mb: 3,
-                  fontSize: { xs: "2.25rem", md: "3rem" },
-                  fontFamily: "var(--font-display), var(--font-manrope), sans-serif",
+                  fontWeight: 600,
+                  mb: 5,
+                  fontSize: { xs: "2.5rem", md: "3.5rem" },
+                  fontFamily: "var(--font-playfair), serif",
                 }}
               >
                 Common <Box component="span" sx={{ color: "secondary.main" }}>Inquiries</Box>
@@ -99,15 +99,14 @@ export default function FAQSection() {
                 >
                   <Accordion
                     sx={{
-                      bgcolor: alpha(muiTheme.palette.background.paper, 0.4),
+                      bgcolor: "transparent",
                       backgroundImage: "none",
-                      borderRadius: "16px !important",
-                      border: `1px solid ${muiTheme.palette.divider}`,
+                      borderRadius: "0 !important",
+                      borderBottom: `1px solid rgba(255,255,255,0.1)`,
                       boxShadow: "none",
                       "&:before": { display: "none" },
                       "&.Mui-expanded": {
-                        borderColor: "secondary.main",
-                        bgcolor: alpha(muiTheme.palette.secondary.main, 0.02),
+                        bgcolor: "rgba(255,255,255,0.02)",
                       },
                     }}
                   >
@@ -117,7 +116,7 @@ export default function FAQSection() {
                       expandIcon={<Plus size={20} style={{ color: muiTheme.palette.secondary.main }} />}
                       sx={{ px: 4, py: 1 }}
                     >
-                      <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.1rem", fontFamily: "var(--font-display), var(--font-manrope), sans-serif" }}>
+                      <Typography component="h3" sx={{ fontWeight: 600, fontSize: "1.25rem", fontFamily: "var(--font-playfair), serif" }}>
                         {faq.question}
                       </Typography>
                     </AccordionSummary>

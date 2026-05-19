@@ -93,9 +93,9 @@ export default function WebsiteCostPage() {
       content={
         <Box>
            {/* AEO Summary Box */}
-          <Box sx={{ p: 4, mb: 10, bgcolor: 'action.hover', borderRadius: 4, borderLeft: '6px solid', borderColor: 'secondary.main', borderRight: '1px solid', borderTop: '1px solid', borderBottom: '1px solid', borderTopColor: 'divider', borderRightColor: 'divider', borderBottomColor: 'divider' }}>
-            <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Calculator className="text-secondary-main" /> Quick Summary: How much is a website in Kerala?
+          <Box sx={{ p: 5, mb: 10, bgcolor: 'rgba(255,255,255,0.02)', borderRadius: "6px", borderLeft: '4px solid', borderColor: '#ffffff', borderRight: '1px solid', borderTop: '1px solid', borderBottom: '1px solid', borderTopColor: 'rgba(255,255,255,0.1)', borderRightColor: 'rgba(255,255,255,0.1)', borderBottomColor: 'rgba(255,255,255,0.1)' }}>
+            <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, display: 'flex', alignItems: 'center', gap: 2, fontFamily: "var(--font-playfair), serif" }}>
+              <Calculator style={{ color: "#ffffff" }} /> Quick Summary: How much is a website in Kerala?
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               Professional website design in Kerala starts from <strong>₹8,000</strong> for a basic site and can go up to <strong>₹75,000+</strong> for custom eCommerce or booking systems. At <strong>codenaxa</strong>, we help you launch a high-performance site that outranks competitors and converts visitors for half the cost of an agency.
@@ -106,13 +106,13 @@ export default function WebsiteCostPage() {
             Whether you are a startup in Kochi or a local clinic in Kannur, we believe in <strong>transparent pricing</strong>. Our cost structure is designed to be affordable for the Kerala market without compromising on premium tech standards.
           </Typography>
 
-          <Typography variant="h4" sx={{ mb: 4, fontWeight: 800, display: 'flex', alignItems: 'center', gap: 2 }}>
-            <IndianRupee className="text-secondary-main" /> Estimated 2026 Price Breakdown
+          <Typography variant="h4" sx={{ mb: 4, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 2, fontFamily: "var(--font-playfair), serif" }}>
+            <IndianRupee style={{ color: "#ffffff" }} /> Estimated 2026 Price Breakdown
           </Typography>
 
-          <TableContainer component={Paper} sx={{ mb: 10, border: '1px solid', borderColor: 'divider', boxShadow: 'none', borderRadius: 4, overflow: 'hidden' }}>
+          <TableContainer component={Paper} sx={{ mb: 10, bgcolor: "#0a0a0a", border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none', borderRadius: "6px", overflow: 'hidden' }}>
             <Table>
-              <TableHead sx={{ bgcolor: 'action.hover' }}>
+              <TableHead sx={{ bgcolor: 'rgba(255,255,255,0.02)' }}>
                 <TableRow>
                   <TableCell sx={{ fontWeight: 800, fontSize: '1.1rem' }}>Website Category</TableCell>
                   <TableCell sx={{ fontWeight: 800, fontSize: '1.1rem' }}>Starting From</TableCell>
@@ -131,7 +131,7 @@ export default function WebsiteCostPage() {
             </Table>
           </TableContainer>
 
-          <Typography variant="h3" sx={{ fontWeight: 800, mb: 4, fontSize: { xs: '1.8rem', md: '2.5rem' } }}>
+          <Typography variant="h3" sx={{ fontWeight: 600, mb: 4, fontSize: { xs: '1.8rem', md: '2.5rem' }, fontFamily: "var(--font-playfair), serif" }}>
             What determines the web development price in Kerala?
           </Typography>
 
@@ -142,16 +142,16 @@ export default function WebsiteCostPage() {
               { icon: <HelpingHand />, title: "Maintenance", text: "Long-term support and hosting renewals should be considered in your budget planning." },
               { icon: <ShieldCheck />, title: "SEO Requirements", text: "Advanced AEO and GEO optimization for modern search engines are included in our premium plans." }
             ].map((feature, idx) => (
-              <Box key={idx} sx={{ p: 4, bgcolor: 'background.paper', borderRadius: 4, border: '1px solid', borderColor: 'divider' }}>
-                <Box sx={{ color: 'secondary.main', mb: 2 }}>{feature.icon}</Box>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>{feature.title}</Typography>
+              <Box key={idx} sx={{ p: 5, bgcolor: '#0a0a0a', borderRadius: "6px", border: '1px solid rgba(255,255,255,0.1)' }}>
+                <Box sx={{ color: '#ffffff', mb: 2 }}>{feature.icon}</Box>
+                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, fontFamily: "var(--font-playfair), serif" }}>{feature.title}</Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>{feature.text}</Typography>
               </Box>
             ))}
           </Box>
 
           <Typography variant="body1" sx={{ fontSize: '1.25rem', color: "text.secondary", lineHeight: 1.8, mb: 4 }}>
-            Stop guessing your budget. Get a custom quote for the <Link href="/best-freelance-web-developer-kerala" className="text-secondary-main hover:underline font-bold">best freelance web developer in Kerala</Link> and launch your project with a reliable partner.
+            Stop guessing your budget. Get a custom quote for the <Link href="/best-freelance-web-developer-kerala" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>best freelance web developer in Kerala</Link> and launch your project with a reliable partner.
           </Typography>
         </Box>
       }

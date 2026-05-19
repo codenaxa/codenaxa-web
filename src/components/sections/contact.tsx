@@ -85,8 +85,9 @@ export default function ContactSection() {
       component="section"
       aria-labelledby="contact-heading"
       sx={{
-        py: { xs: 12, md: 16 },
-        borderTop: `1px solid ${muiTheme.palette.divider}`,
+        py: { xs: 16, md: 24 },
+        bgcolor: "#050505",
+        borderTop: `1px solid rgba(255,255,255,0.05)`,
       }}
     >
       <Container maxWidth="lg">
@@ -102,9 +103,11 @@ export default function ContactSection() {
                 variant="h2"
                 id="contact-heading"
                 sx={{
-                  fontWeight: 800,
-                  mb: 3,
-                  fontSize: { xs: "2rem", md: "3rem" },
+                  fontWeight: 600,
+                  mb: 4,
+                  fontSize: { xs: "2.5rem", md: "3.5rem" },
+                  fontFamily: "var(--font-playfair), serif",
+                  color: "text.primary",
                 }}
               >
                 Discuss Your Requirements
@@ -150,11 +153,7 @@ export default function ContactSection() {
                     aria-label={link.label}
                     sx={{
                       bgcolor: link.label === "WhatsApp" ? alpha("#25D366", 0.1) : alpha(muiTheme.palette.text.primary, 0.05),
-                      color: link.label === "WhatsApp" ? "#25D366" : "inherit",
-                      "&:hover": {
-                        bgcolor: link.label === "WhatsApp" ? "#25D366" : muiTheme.palette.primary.main,
-                        color: "white",
-                      },
+                      
                     }}
                   >
                     {link.icon}
@@ -173,9 +172,11 @@ export default function ContactSection() {
             >
               <Card
                 sx={{
-                  p: { xs: 4, md: 6 },
-                  borderRadius: 5,
-                  border: `1px solid ${muiTheme.palette.divider}`,
+                  p: { xs: 5, md: 6 },
+                  borderRadius: "6px",
+                  border: `1px solid rgba(255,255,255,0.1)`,
+                  bgcolor: "#0a0a0a",
+                  boxShadow: "none",
                 }}
               >
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -194,7 +195,11 @@ export default function ContactSection() {
                             error={!!errors.name}
                             helperText={errors.name?.message}
                             sx={{
-                              "& .MuiOutlinedInput-root": { borderRadius: 3 },
+                              "& .MuiOutlinedInput-root": { 
+                                borderRadius: "6px",
+                                '& fieldset': { borderColor: 'rgba(255,255,255,0.2)' },
+                                '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.5)' },
+                              },
                             }}
                           />
                         )}
@@ -215,7 +220,11 @@ export default function ContactSection() {
                             error={!!errors.email}
                             helperText={errors.email?.message}
                             sx={{
-                              "& .MuiOutlinedInput-root": { borderRadius: 3 },
+                              "& .MuiOutlinedInput-root": { 
+                                borderRadius: "6px",
+                                '& fieldset': { borderColor: 'rgba(255,255,255,0.2)' },
+                                '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.5)' },
+                              },
                             }}
                           />
                         )}
@@ -238,7 +247,11 @@ export default function ContactSection() {
                             error={!!errors.message}
                             helperText={errors.message?.message}
                             sx={{
-                              "& .MuiOutlinedInput-root": { borderRadius: 3 },
+                              "& .MuiOutlinedInput-root": { 
+                                borderRadius: "6px",
+                                '& fieldset': { borderColor: 'rgba(255,255,255,0.2)' },
+                                '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.5)' },
+                              },
                             }}
                           />
                         )}
@@ -255,9 +268,17 @@ export default function ContactSection() {
                         endIcon={!isSubmitting && <Send size={20} />}
                         sx={{
                           py: 2,
-                          borderRadius: 3,
-                          fontWeight: 700,
-                          textTransform: "none",
+                          borderRadius: "6px",
+                          fontWeight: 500,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          borderWidth: "1px",
+                          borderColor: "text.primary",
+                          color: "background.default",
+                          bgcolor: "text.primary",
+                          "&:hover": {
+                            bgcolor: "secondary.main",
+                          }
                         }}
                       >
                         {isSubmitting ? "Submitting..." : "Submit Requirements"}

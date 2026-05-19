@@ -1,26 +1,23 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { Inter, Manrope, Space_Grotesk } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import ThemeRegistry from '@/components/theme-registry';
 import dynamic from 'next/dynamic';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import LenisProvider from '@/components/lenis-provider';
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster));
 const WhatsappFloat = dynamic(() => import('@/components/whatsapp-float'));
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
-const manrope = Manrope({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-manrope',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display',
+  variable: '--font-playfair',
   display: 'swap',
 });
 
@@ -262,7 +259,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} antialiased bg-[#050505] text-white`}
         suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">
@@ -274,10 +271,12 @@ export default function RootLayout({
         />
         <ThemeRegistry>
           <ThemeProvider>
-            {children}
-            <SpeedInsights/>
-            <WhatsappFloat />
-            <Toaster />
+            <LenisProvider>
+              {children}
+              <SpeedInsights/>
+              <WhatsappFloat />
+              <Toaster />
+            </LenisProvider>
           </ThemeProvider>
         </ThemeRegistry>
       </body>

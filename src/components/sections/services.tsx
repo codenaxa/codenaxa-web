@@ -14,45 +14,45 @@ import { useTheme as useMuiTheme, alpha } from "@mui/material";
 const services = [
   {
     icon: <Globe size={28} aria-hidden="true" />,
-    title: "Hotel Booking Websites",
+    title: "Hotel Booking",
     description:
-      "Custom booking systems for hotels and resorts. Includes room availability, online reservations, guest management, and payment processing.",
-    benefits: ["Online room booking (24/7)", "Guest management dashboard", "Payment gateway integration", "Mobile-responsive design"],
+      "Custom booking systems for hotels. Includes room availability, reservations, and payment processing.",
+    benefits: ["Online room booking", "Guest dashboard", "Payment gateway", "Mobile-responsive"],
   },
   {
     icon: <Server size={28} aria-hidden="true" />,
-    title: "Restaurant Menu & Order System",
+    title: "Restaurant Menu",
     description:
-      "Digital menu websites with online ordering for restaurants and cafes. Customers view menu, place orders, and pay online.",
-    benefits: ["Digital menu with photos", "Kitchen display dashboard", "Payment integration (UPI)", "Delivery system integration"],
+      "Digital menu websites with online ordering. Customers can view menus, place orders, and pay online.",
+    benefits: ["Digital menus", "Kitchen display", "UPI integration", "Delivery system"],
   },
   {
     icon: <Database size={28} aria-hidden="true" />,
-    title: "Clinic Appointment System",
+    title: "Clinic System",
     description:
-      "Online appointment scheduling for clinics and medical practices. Reduces no-shows by 60% with automated reminders.",
-    benefits: ["Online appointment calendar", "Automated SMS reminders", "Patient record management", "Doctor schedule optimization"],
+      "Online appointment scheduling for clinics. Reduces no-shows by 60% with automated reminders.",
+    benefits: ["Online calendar", "SMS reminders", "Patient records", "Doctor schedules"],
   },
   {
     icon: <Zap size={28} aria-hidden="true" />,
-    title: "Real Estate & Lead Portal",
+    title: "Real Estate",
     description:
-      "Property listing websites for real estate agents. Showcase 50+ properties with photos, tours, and location maps.",
-    benefits: ["Professional listings", "Virtual tour integration", "Lead capture forms", "Inquiry management"],
+      "Property listing websites for agents. Showcase properties with photos, tours, and location maps.",
+    benefits: ["Property listings", "Virtual tours", "Lead capture forms", "Inquiry tracking"],
   },
   {
     icon: <Smartphone size={28} aria-hidden="true" />,
-    title: "E-Commerce Shop & Online Store",
+    title: "E-Commerce",
     description:
-      "Build online stores for retail shops and boutiques. Customers browse, add to cart, pay, and track orders.",
-    benefits: ["Product catalog management", "Shopping cart & checkout", "Multiple payment options", "Order tracking system"],
+      "Build online stores for retail shops. Customers can easily browse, add to cart, and track orders.",
+    benefits: ["Product catalog", "Shopping cart", "Multiple payments", "Order tracking"],
   },
   {
     icon: <Shield size={28} aria-hidden="true" />,
-    title: "Salon & Service Booking System",
+    title: "Salon Booking",
     description:
-      "Appointment scheduling for salons, spas, and gyms. Staff management, service pricing, and automated reminders.",
-    benefits: ["Staff scheduling system", "Service catalog & pricing", "Online booking calendar", "Automated reminders"],
+      "Appointment scheduling for salons and spas. Features staff management and service pricing.",
+    benefits: ["Staff scheduling", "Service pricing", "Online booking", "Automated alerts"],
   },
 ];
 
@@ -66,13 +66,10 @@ export default function ServicesSection() {
         component="section"
         aria-labelledby="services-heading"
         sx={{
-          py: { xs: 12, md: 16 },
-          bgcolor:
-            muiTheme.palette.mode === "light"
-              ? "rgba(248, 250, 252, 0.6)"
-              : alpha(muiTheme.palette.background.paper, 0.2),
-          borderTop: `1px solid ${muiTheme.palette.divider}`,
-          borderBottom: `1px solid ${muiTheme.palette.divider}`,
+          py: { xs: 16, md: 24 }, // Massive vertical spacing
+          bgcolor: "#0a0a0a", // Secondary dark background
+          borderTop: `1px solid rgba(255,255,255,0.05)`,
+          borderBottom: `1px solid rgba(255,255,255,0.05)`,
         }}
       >
         <Container maxWidth="lg">
@@ -104,12 +101,13 @@ export default function ServicesSection() {
                 variant="h2"
                 id="services-heading"
                 sx={{
-                  fontWeight: 800,
-                  mb: 3,
-                  fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+                  fontWeight: 600,
+                  mb: 4,
+                  fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
+                  fontFamily: "var(--font-playfair), serif"
                 }}
               >
-                Custom Websites for Small Business
+                Tailored Services
               </Typography>
 
               <Typography
@@ -154,68 +152,81 @@ export default function ServicesSection() {
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      borderRadius: 4,
-                      border: `1px solid ${muiTheme.palette.divider}`,
+                      borderRadius: "6px",
+                      bgcolor: "transparent",
+                      border: `1px solid rgba(255,255,255,0.1)`,
                       boxShadow: "none",
-                      transition: "all 0.3s ease",
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                       "&:hover": {
-                        transform: "translateY(-8px)",
-                        borderColor: "secondary.main",
+                        transform: "translateY(-10px)",
+                        bgcolor: "#ffffff",
+                        borderColor: "#ffffff",
+                        "& .service-text, & .service-icon": {
+                          color: "#050505",
+                        },
+                        "& .service-bullet": {
+                          bgcolor: "#050505",
+                        }
                       },
                     }}
                   >
                     <CardContent sx={{ p: 4, height: "100%", display: "flex", flexDirection: "column" }}>
-                      <Box
-                        sx={{
-                          width: 54,
-                          height: 54,
-                          borderRadius: 2,
-                          bgcolor: alpha(muiTheme.palette.secondary.main, 0.1),
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          mb: 3,
-                          color: "secondary.main",
-                        }}
-                      >
-                        {service.icon}
-                      </Box>
+                        <Box
+                          className="service-icon"
+                          sx={{
+                            width: 54,
+                            height: 54,
+                            borderRadius: '50%',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            mb: 4,
+                            color: "text.primary",
+                            transition: "color 0.3s ease",
+                          }}
+                        >
+                          {service.icon}
+                        </Box>
 
-                      <Typography variant="h6" component="h3" sx={{ fontWeight: 800, mb: 2, minHeight: { md: '4.5rem' }, display: 'flex', alignItems: 'flex-start', pt: 0.5 }}>
-                        {service.title}
-                      </Typography>
+                        <Typography className="service-text" variant="h6" component="h3" sx={{ fontWeight: 600, mb: 1.5, fontFamily: "var(--font-playfair), serif", transition: "color 0.3s ease", fontSize: "1.5rem" }}>
+                          {service.title}
+                        </Typography>
 
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: "text.secondary",
-                          mb: 3,
-                          lineHeight: 1.7,
-                          minHeight: { md: '5rem' }
-                        }}
+                        <Typography
+                          className="service-text"
+                          variant="body2"
+                          sx={{
+                            color: "text.secondary",
+                            mb: 3,
+                            lineHeight: 1.7,
+                            transition: "color 0.3s ease",
+                          }}
                       >
                         {service.description}
                       </Typography>
 
-                      <Box sx={{ mt: 'auto', pt: 3, borderTop: `1px solid ${alpha(muiTheme.palette.divider, 0.5)}` }}>
-                        <Box component="ul" sx={{ m: 0, pl: 2, listStyleType: 'none' }}>
-                          {service.benefits.map((benefit, i) => (
-                            <Box key={i} component="li" sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5, gap: 1.5 }}>
-                              <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: 'secondary.main', mt: 1, flexShrink: 0 }} />
-                              <Typography
-                                variant="body2"
-                                sx={{
-                                  fontWeight: 600,
-                                  fontSize: "0.85rem",
-                                  color: "text.primary",
-                                }}
-                              >
-                                {benefit}
-                              </Typography>
-                            </Box>
-                          ))}
+                        <Box sx={{ mt: 'auto', pt: 3, borderTop: `1px solid rgba(170,170,170,0.2)` }}>
+                          <Box component="ul" sx={{ m: 0, pl: 0, listStyleType: 'none' }}>
+                            {service.benefits.map((benefit, i) => (
+                              <Box key={i} component="li" sx={{ display: 'flex', alignItems: 'flex-start', mb: 2, gap: 1.5 }}>
+                                <Box className="service-bullet" sx={{ width: 4, height: 4, borderRadius: '50%', bgcolor: 'text.primary', mt: 1.2, flexShrink: 0, transition: "background-color 0.3s ease" }} />
+                                <Typography
+                                  className="service-text"
+                                  variant="body2"
+                                  sx={{
+                                    fontWeight: 400,
+                                    fontSize: "0.9rem",
+                                    color: "text.primary",
+                                    transition: "color 0.3s ease",
+                                  }}
+                                >
+                                  {benefit}
+                                </Typography>
+                              </Box>
+                            ))}
+                          </Box>
                         </Box>
-                      </Box>
                     </CardContent>
                   </Card>
                 </m.div>

@@ -73,8 +73,8 @@ export default function WorkPackages() {
                 id="work-packages"
                 component="section"
                 sx={{
-                    py: { xs: 12, md: 16 },
-                    bgcolor: muiTheme.palette.mode === 'light' ? 'background.default' : alpha(muiTheme.palette.background.paper, 0.1),
+                    py: { xs: 16, md: 24 },
+                    bgcolor: "#050505",
                 }}
             >
                 <Container maxWidth="lg">
@@ -102,13 +102,13 @@ export default function WorkPackages() {
                             <Typography
                                 variant="h2"
                                 sx={{
-                                    fontWeight: 800,
-                                    mb: 3,
-                                    fontSize: { xs: "2.25rem", sm: "2.75rem", md: "3.5rem" },
+                                    fontWeight: 600,
+                                    mb: 4,
+                                    fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
+                                    fontFamily: "var(--font-playfair), serif"
                                 }}
                             >
-                                Transparent Pricing for Your Business
-
+                                Transparent Pricing
                             </Typography>
 
                             <Typography
@@ -140,31 +140,33 @@ export default function WorkPackages() {
                                     <Card
                                         sx={{
                                             height: "100%",
-                                            borderRadius: 4,
-                                            border: `1px solid ${muiTheme.palette.divider}`,
+                                            borderRadius: "6px",
+                                            bgcolor: "#050505",
+                                            border: `1px solid rgba(255,255,255,0.1)`,
                                             boxShadow: "none",
                                             position: 'relative',
                                             overflow: 'visible',
-                                            transition: 'transform 0.3s ease',
+                                            transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease',
                                             '&:hover': {
-                                                transform: 'translateY(-8px)'
+                                                transform: 'translateY(-10px)',
+                                                borderColor: 'rgba(255,255,255,0.5)',
                                             }
                                         }}
                                     >
-                                        <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                            <Box sx={{ color: 'secondary.main', mb: 2 }}>{pkg.icon}</Box>
-                                            <Typography variant="h5" component="h3" sx={{ fontWeight: 800, mb: 1 }}>
+                                        <CardContent sx={{ p: 5, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                            <Box sx={{ color: 'text.primary', mb: 3 }}>{pkg.icon}</Box>
+                                            <Typography variant="h5" component="h3" sx={{ fontWeight: 600, mb: 1, fontFamily: "var(--font-playfair), serif", fontSize: '2rem' }}>
                                                 {pkg.title}
                                             </Typography>
-                                            <Typography variant="body2" sx={{ color: "text.secondary", mb: 3, minHeight: '40px' }}>
+                                            <Typography variant="body2" sx={{ color: "text.secondary", mb: 4, minHeight: '40px' }}>
                                                 {pkg.subtitle}
                                             </Typography>
 
-                                            <Box sx={{ mb: 4, pt: 3, borderTop: `1px solid ${alpha(muiTheme.palette.divider, 0.5)}` }}>
+                                            <Box sx={{ mb: 5, pt: 4, borderTop: `1px solid rgba(255,255,255,0.1)` }}>
                                                 {pkg.features.map((feature, i) => (
                                                     <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-                                                        <Box sx={{ color: 'secondary.main', display: 'flex' }}><Check size={16} /></Box>
-                                                        <Typography variant="body2" sx={{ fontWeight: 500 }}>{feature}</Typography>
+                                                        <Box sx={{ color: 'text.primary', display: 'flex' }}><Check size={16} /></Box>
+                                                        <Typography variant="body2" sx={{ fontWeight: 400 }}>{feature}</Typography>
                                                     </Box>
                                                 ))}
                                             </Box>
@@ -204,9 +206,9 @@ export default function WorkPackages() {
                     </Grid>
 
                     {/* Mini Packages */}
-                    <Box sx={{ pt: 6, borderTop: `1px solid ${muiTheme.palette.divider}` }}>
-                        <Typography variant="h6" component="h3" sx={{ fontWeight: 800, mb: 4, textAlign: 'center' }}>
-                            Specific Service Add-ons
+                    <Box sx={{ pt: 10, borderTop: `1px solid rgba(255,255,255,0.1)` }}>
+                        <Typography variant="h6" component="h3" sx={{ fontWeight: 600, mb: 6, textAlign: 'center', fontFamily: 'var(--font-playfair), serif', fontSize: '2rem' }}>
+                            Service Add-ons
                         </Typography>
                         <Grid container spacing={3} justifyContent="center">
                             {miniPackages.map((item, index) => (
@@ -219,29 +221,29 @@ export default function WorkPackages() {
                                     >
                                         <Box
                                             sx={{
-                                                p: 3,
-                                                borderRadius: 3,
-                                                bgcolor: alpha(muiTheme.palette.secondary.main, 0.03),
-                                                border: `1px solid ${alpha(muiTheme.palette.divider, 0.8)}`,
+                                                p: 4,
+                                                borderRadius: "6px",
+                                                bgcolor: "transparent",
+                                                border: `1px solid rgba(255,255,255,0.1)`,
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'space-between',
-                                                transition: 'all 0.2s ease',
+                                                transition: 'all 0.3s ease',
                                                 '&:hover': {
-                                                    bgcolor: alpha(muiTheme.palette.secondary.main, 0.06),
-                                                    borderColor: alpha(muiTheme.palette.secondary.main, 0.3)
+                                                    borderColor: 'rgba(255,255,255,0.5)',
+                                                    bgcolor: 'rgba(255,255,255,0.02)'
                                                 }
                                             }}
                                         >
                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                                                <Box sx={{ color: 'secondary.main', bgcolor: alpha(muiTheme.palette.secondary.main, 0.1), p: 1, borderRadius: 1.5, display: 'flex' }}>
+                                                <Box sx={{ color: 'text.primary', display: 'flex' }}>
                                                     {item.icon}
                                                 </Box>
-                                                <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                                                <Typography variant="body1" sx={{ fontWeight: 500 }}>
                                                     {item.title}
                                                 </Typography>
                                             </Box>
-                                            <Typography variant="body1" sx={{ fontWeight: 900, color: 'secondary.main' }}>
+                                            <Typography variant="body1" sx={{ fontWeight: 700, color: 'text.primary' }}>
                                                 {item.price}
                                             </Typography>
                                         </Box>

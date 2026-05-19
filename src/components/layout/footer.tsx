@@ -27,10 +27,10 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-        bgcolor: "background.default",
+        bgcolor: "#050505",
         pt: 10,
         pb: 6,
-        borderTop: `1px solid ${muiTheme.palette.divider}`,
+        borderTop: `1px solid rgba(255,255,255,0.05)`,
       }}
     >
       <Container maxWidth="lg">
@@ -46,7 +46,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </Box>
-              <span className="text-2xl font-bold font-satoshi">codenaxa</span>
+              <span className="text-2xl font-bold font-playfair" style={{ fontFamily: "var(--font-playfair), serif" }}>codenaxa</span>
             </Link>
 
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 420, lineHeight: 1.8, mb: 5 }}>
@@ -68,8 +68,8 @@ export default function Footer() {
                     bgcolor: alpha(muiTheme.palette.text.primary, 0.05),
                     color: "text.secondary",
                     "&:hover": {
-                      bgcolor: "primary.main",
-                      color: "white",
+                      bgcolor: "#ffffff",
+                      color: "#050505",
                       transform: "translateY(-3px)",
                     },
                   }}
@@ -81,7 +81,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: 800, mb: 3 }}>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600, mb: 3, fontFamily: 'var(--font-playfair), serif', fontSize: '1.25rem' }}>
               Services
             </Typography>
 
@@ -98,7 +98,7 @@ export default function Footer() {
                     variant="body2"
                     color="text.secondary"
                     sx={{
-                      "&:hover": { color: "primary.main" },
+                      "&:hover": { color: "#ffffff" },
                       transition: "color 0.2s",
                     }}
                   >
@@ -110,7 +110,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: 800, mb: 3 }}>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600, mb: 3, fontFamily: 'var(--font-playfair), serif', fontSize: '1.25rem' }}>
               Kerala Guides
             </Typography>
 
@@ -125,7 +125,7 @@ export default function Footer() {
                     variant="body2"
                     color="text.secondary"
                     sx={{
-                      "&:hover": { color: "primary.main" },
+                      "&:hover": { color: "#ffffff" },
                       transition: "color 0.2s",
                     }}
                   >
@@ -137,7 +137,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
-            <Typography variant="h6" component="h2" sx={{ fontWeight: 800, mb: 3 }}>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600, mb: 3, fontFamily: 'var(--font-playfair), serif', fontSize: '1.25rem' }}>
               Quick Links
             </Typography>
 
@@ -153,7 +153,7 @@ export default function Footer() {
                     variant="body2"
                     color="text.secondary"
                     sx={{
-                      "&:hover": { color: "primary.main" },
+                      "&:hover": { color: "#ffffff" },
                       transition: "color 0.2s",
                     }}
                   >
@@ -168,7 +168,7 @@ export default function Footer() {
         <Box
           sx={{
             pt: 5,
-            borderTop: `1px solid ${muiTheme.palette.divider}`,
+            borderTop: `1px solid rgba(255,255,255,0.05)`,
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             justifyContent: "space-between",

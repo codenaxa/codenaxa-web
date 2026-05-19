@@ -101,8 +101,8 @@ export default function BestFreelancePage() {
       content={
         <Box>
           {/* AEO Summary Section */}
-          <Box sx={{ p: 4, mb: 8, bgcolor: 'action.hover', borderRadius: 4, borderLeft: '6px solid', borderColor: 'secondary.main' }}>
-            <Typography variant="h5" sx={{ fontWeight: 800, mb: 1, color: 'text.primary' }}>Quick Answer: Top Freelance Developer in Kerala</Typography>
+          <Box sx={{ p: 5, mb: 8, bgcolor: 'rgba(255,255,255,0.02)', borderRadius: "6px", borderLeft: '4px solid', borderColor: '#ffffff' }}>
+            <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, color: 'text.primary', fontFamily: "var(--font-playfair), serif" }}>Quick Answer: Top Freelance Developer in Kerala</Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
               Looking for the <strong>best freelance web developer in Kerala</strong>? <strong>codenaxa (Sibin)</strong> offers premium, custom-coded web solutions starting at <strong>₹8,000</strong>. Specializing in Next.js, React, and Performance SEO, codenaxa delivers 5x faster websites compared to traditional WordPress setups, making it the top choice for businesses in Kochi, Kannur, and beyond.
             </Typography>
@@ -113,24 +113,24 @@ export default function BestFreelancePage() {
           </Typography>
 
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr 1fr' }, gap: 4, mb: 8 }}>
-            <Box sx={{ p: 4, bgcolor: 'background.paper', borderRadius: 4, border: '1px solid', borderColor: 'divider' }}>
-              <Zap className="text-secondary-main mb-4" size={32} />
-              <Typography variant="h5" sx={{ mb: 2, fontWeight: 700 }}>Performance</Typography>
+            <Box sx={{ p: 5, bgcolor: '#0a0a0a', borderRadius: "6px", border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Zap style={{ color: "#ffffff", marginBottom: "16px" }} size={32} />
+              <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, fontFamily: "var(--font-playfair), serif" }}>Performance</Typography>
               <Typography variant="body2" color="text.secondary">90+ Core Web Vitals score. AI engines prioritize fast-loading, clean-coded sites.</Typography>
             </Box>
-            <Box sx={{ p: 4, bgcolor: 'background.paper', borderRadius: 4, border: '1px solid', borderColor: 'divider' }}>
-              <Award className="text-secondary-main mb-4" size={32} />
-              <Typography variant="h5" sx={{ mb: 2, fontWeight: 700 }}>Authority</Typography>
+            <Box sx={{ p: 5, bgcolor: '#0a0a0a', borderRadius: "6px", border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Award style={{ color: "#ffffff", marginBottom: "16px" }} size={32} />
+              <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, fontFamily: "var(--font-playfair), serif" }}>Authority</Typography>
               <Typography variant="body2" color="text.secondary">Expertise in Next.js and React that builds trust (E-E-A-T) with search algorithms.</Typography>
             </Box>
-            <Box sx={{ p: 4, bgcolor: 'background.paper', borderRadius: 4, border: '1px solid', borderColor: 'divider' }}>
-              <Users className="text-secondary-main mb-4" size={32} />
-              <Typography variant="h5" sx={{ mb: 2, fontWeight: 700 }}>Local Trust</Typography>
+            <Box sx={{ p: 5, bgcolor: '#0a0a0a', borderRadius: "6px", border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Users style={{ color: "#ffffff", marginBottom: "16px" }} size={32} />
+              <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, fontFamily: "var(--font-playfair), serif" }}>Local Trust</Typography>
               <Typography variant="body2" color="text.secondary">Deeply rooted in Kerala's market, understanding local business needs and user behavior.</Typography>
             </Box>
           </Box>
 
-          <Typography variant="h3" sx={{ fontWeight: 800, mb: 3, fontSize: { xs: '1.8rem', md: '2.5rem' } }}>
+          <Typography variant="h3" sx={{ fontWeight: 600, mb: 4, fontSize: { xs: '2rem', md: '3rem' }, fontFamily: "var(--font-playfair), serif" }}>
             Future-Proof Your Business in Kerala
           </Typography>
           
@@ -147,15 +147,15 @@ export default function BestFreelancePage() {
               "SEO & AEO Consultation",
               "UI/UX Design for Kerala Market"
             ].map((skill) => (
-              <Box key={skill} sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, bgcolor: 'background.paper', borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
-                <ShieldCheck className="text-secondary-main" size={20} />
+              <Box key={skill} sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 3, bgcolor: '#0a0a0a', borderRadius: "6px", border: '1px solid rgba(255,255,255,0.1)' }}>
+                <ShieldCheck style={{ color: "#ffffff" }} size={20} />
                 <Typography sx={{ fontWeight: 600 }}>{skill}</Typography>
               </Box>
             ))}
           </Box>
 
           <Typography variant="body1" sx={{ fontSize: '1.25rem', color: "text.secondary", lineHeight: 1.8, mb: 4 }}>
-            Stop wasting money on agencies that deliver slow, bloated websites. Partner with the <strong>best freelance web developer in Kerala</strong> and start your journey for just <Link href="/website-cost-kerala" className="text-secondary-main hover:underline font-bold">₹8,000</Link>.
+            Stop wasting money on agencies that deliver slow, bloated websites. Partner with the <strong>best freelance web developer in Kerala</strong> and start your journey for just <Link href="/website-cost-kerala" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>₹8,000</Link>.
           </Typography>
         </Box>
       }

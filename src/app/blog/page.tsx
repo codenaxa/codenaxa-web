@@ -61,7 +61,7 @@ export default async function BlogPublicIndex() {
   const posts = await getPosts();
 
   return (
-    <Box sx={{ py: { xs: 12, md: 16 }, minHeight: "100vh", bgcolor: "background.default" }}>
+    <Box sx={{ py: { xs: 16, md: 24 }, minHeight: "100vh", bgcolor: "#050505" }}>
       <Container maxWidth="lg">
         <Typography
           variant="caption"
@@ -76,7 +76,7 @@ export default async function BlogPublicIndex() {
         >
           Insights & Updates
         </Typography>
-        <Typography variant="h1" sx={{ fontWeight: 800, fontSize: { xs: "2.5rem", md: "4rem" }, mb: 4 }}>
+        <Typography variant="h1" sx={{ fontWeight: 600, fontSize: { xs: "2.5rem", md: "4rem" }, mb: 4, fontFamily: "var(--font-playfair), serif" }}>
           Codenaxa <span style={{ color: "var(--mui-palette-secondary-main)" }}>Blog</span>
         </Typography>
         <Typography
@@ -102,12 +102,12 @@ export default async function BlogPublicIndex() {
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    borderRadius: 4,
-                    border: "1px solid",
-                    borderColor: "divider",
+                    borderRadius: "6px",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    bgcolor: "transparent",
                     boxShadow: "none",
-                    transition: "transform 0.2s",
-                    "&:hover": { transform: "translateY(-6px)", borderColor: "secondary.main" },
+                    transition: "transform 0.2s, border-color 0.2s",
+                    "&:hover": { transform: "translateY(-10px)", borderColor: "rgba(255,255,255,0.5)" },
                   }}
                 >
                   {post.coverImage && (
@@ -140,7 +140,7 @@ export default async function BlogPublicIndex() {
                         year: "numeric",
                       })}
                     </Box>
-                    <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
+                    <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 2, fontFamily: "var(--font-playfair), serif", fontSize: "1.5rem" }}>
                       {post.title}
                     </Typography>
                     <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.7, mb: 4, flexGrow: 1 }}>

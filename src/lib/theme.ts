@@ -4,46 +4,48 @@ import { createTheme, responsiveFontSizes, ThemeOptions } from '@mui/material/st
 
 const baseThemeOptions: ThemeOptions = {
     typography: {
-        fontFamily: 'var(--font-inter), var(--font-manrope), sans-serif',
+        fontFamily: 'var(--font-inter), sans-serif',
         h1: {
-            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
+            fontFamily: 'var(--font-playfair), serif',
             fontWeight: 700,
-            letterSpacing: '-0.02em',
-            fontSize: '3.5rem',
+            letterSpacing: '0.02em',
+            fontSize: '4.5rem',
         },
         h2: {
-            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
+            fontFamily: 'var(--font-playfair), serif',
             fontWeight: 700,
-            letterSpacing: '-0.01em',
-            fontSize: '2.5rem',
+            letterSpacing: '0.01em',
+            fontSize: '3.5rem',
         },
         h3: {
-            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
+            fontFamily: 'var(--font-playfair), serif',
             fontWeight: 600,
-            fontSize: '2rem',
+            fontSize: '2.5rem',
         },
         h4: {
-            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
+            fontFamily: 'var(--font-playfair), serif',
             fontWeight: 600,
-            fontSize: '1.5rem',
+            fontSize: '1.75rem',
         },
         h5: {
-            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
+            fontFamily: 'var(--font-playfair), serif',
             fontWeight: 600,
             fontSize: '1.25rem',
         },
         h6: {
-            fontFamily: 'var(--font-display), var(--font-manrope), sans-serif',
+            fontFamily: 'var(--font-playfair), serif',
             fontWeight: 600,
             fontSize: '1.1rem',
         },
         body1: {
             lineHeight: 1.6,
-            fontSize: '1rem',
+            fontSize: '1.125rem',
+            fontFamily: 'var(--font-inter), sans-serif',
         },
         body2: {
             lineHeight: 1.6,
-            fontSize: '0.875rem',
+            fontSize: '1rem',
+            fontFamily: 'var(--font-inter), sans-serif',
         },
         button: {
             textTransform: 'none',
@@ -93,26 +95,26 @@ const baseThemeOptions: ThemeOptions = {
     },
 };
 
-export const lightTheme = responsiveFontSizes(createTheme({
+export const darkTheme = responsiveFontSizes(createTheme({
     ...baseThemeOptions,
     palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-            main: '#1D4ED8', // Accent
-            dark: '#1E3A8A', // Hover
+            main: '#ffffff', // White
+            dark: '#d1d1d1', // Gray
         },
         secondary: {
-            main: '#1D4ED8',
-            dark: '#1E3A8A',
+            main: '#aaaaaa', // Lighter Gray
+            dark: '#111111',
         },
         background: {
-            default: '#FFFFFF', // Background
-            paper: '#F3F4F6',   // Section background equivalent
+            default: '#050505', // Deep pure black
+            paper: '#111111',   // Secondary dark
         },
         text: {
-            primary: '#111827',
-            secondary: '#4B5563',
+            primary: '#ffffff',
+            secondary: '#aaaaaa',
         },
-        divider: '#E5E7EB',
+        divider: 'rgba(255,255,255,0.1)',
     },
 }));

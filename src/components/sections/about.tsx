@@ -13,27 +13,27 @@ import { useTheme as useMuiTheme, alpha } from "@mui/material";
 const keyPoints = [
   {
     icon: <Code size={24} aria-hidden="true" />,
-    title: "Clean & Maintainable Code",
+    title: "Maintainable Code",
     description:
-      "Every project is built with structured architecture and readable code practices, making future updates and scaling straightforward.",
+      "Projects are built with structured architecture and readable code practices for easy future scaling.",
   },
   {
     icon: <ShieldCheck size={24} aria-hidden="true" />,
-    title: "Security-First Development",
+    title: "Security-First Design",
     description:
-      "Authentication, data protection, and secure backend practices are integrated from the beginning - not added later.",
+      "Authentication, data protection, and secure backend practices are integrated directly from day one.",
   },
   {
     icon: <Zap size={24} aria-hidden="true" />,
-    title: "Performance Optimized",
+    title: "Performance Focus",
     description:
-      "Fast-loading interfaces, optimized APIs, and efficient database design ensure smooth user experience at scale.",
+      "Fast-loading interfaces, optimized APIs, and efficient databases ensure a smooth user experience.",
   },
   {
     icon: <Layout size={24} aria-hidden="true" />,
-    title: "Scalable System Design",
+    title: "Scalable Systems",
     description:
-      "Websites are structured to handle increasing traffic, feature expansion, and long-term business growth.",
+      "Websites are strategically structured to handle increasing traffic, new features, and business growth.",
   },
 ];
 
@@ -47,9 +47,9 @@ export default function AboutSection() {
         component="section"
         aria-labelledby="about-heading"
         sx={{
-          py: { xs: 12, md: 16 },
+          py: { xs: 16, md: 24 },
           position: "relative",
-          background: muiTheme.palette.mode === "light" ? "white" : "transparent",
+          background: "#0a0a0a",
         }}
       >
         <Container maxWidth="lg">
@@ -80,9 +80,10 @@ export default function AboutSection() {
                   variant="h2"
                   id="about-heading"
                   sx={{
-                    fontWeight: 800,
-                    fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
-                    lineHeight: 1.2,
+                    fontWeight: 600,
+                    fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
+                    fontFamily: "var(--font-playfair), serif",
+                    lineHeight: 1.1,
                     mb: 4,
                   }}
                 >
@@ -133,16 +134,19 @@ export default function AboutSection() {
                     >
                       <Card
                         sx={{
-                          p: 4,
+                          p: { xs: 4, lg: 5 },
                           height: "100%",
-                          border: `1px solid ${muiTheme.palette.divider}`,
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          border: `1px solid rgba(255,255,255,0.1)`,
                           boxShadow: "none",
-                          backgroundColor: alpha(muiTheme.palette.background.paper, 0.5),
-                          borderRadius: 4,
-                          transition: "all 0.3s ease",
+                          backgroundColor: "#050505",
+                          borderRadius: "6px",
+                          transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease",
                           "&:hover": {
-                            borderColor: "secondary.main",
-                            transform: "translateY(-4px)",
+                            borderColor: "rgba(255,255,255,0.5)",
+                            transform: "translateY(-10px)",
                           },
                         }}
                       >
@@ -150,13 +154,13 @@ export default function AboutSection() {
                           sx={{
                             width: 50,
                             height: 50,
-                            borderRadius: 2,
-                            bgcolor: alpha(muiTheme.palette.secondary.main, 0.1),
+                            borderRadius: '50%',
+                            border: '1px solid rgba(255,255,255,0.2)',
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            mb: 3,
-                            color: "secondary.main",
+                            mb: 4,
+                            color: "text.primary",
                           }}
                         >
                           {point.icon}
@@ -166,8 +170,10 @@ export default function AboutSection() {
                           variant="h6"
                           component="h3"
                           sx={{
-                            fontWeight: 700,
-                            mb: 1.5,
+                            fontWeight: 600,
+                            fontFamily: "var(--font-playfair), serif",
+                            fontSize: "1.25rem",
+                            mb: 2,
                           }}
                         >
                           {point.title}

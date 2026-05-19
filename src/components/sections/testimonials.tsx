@@ -33,11 +33,9 @@ export default function TestimonialsSection() {
         component="section"
         aria-labelledby="reviews-heading"
         sx={{
-          py: { xs: 12, md: 16 },
-          bgcolor:
-            muiTheme.palette.mode === "light"
-              ? "rgba(248, 250, 252, 0.6)"
-              : alpha(muiTheme.palette.background.paper, 0.1),
+          py: { xs: 16, md: 24 },
+          bgcolor: "#0a0a0a",
+          borderTop: `1px solid rgba(255,255,255,0.05)`,
         }}
       >
         <Container maxWidth="lg">
@@ -67,9 +65,10 @@ export default function TestimonialsSection() {
                 variant="h2"
                 id="reviews-heading"
                 sx={{
-                  fontWeight: 800,
-                  mb: 3,
-                  fontSize: { xs: "2rem", sm: "2.25rem", md: "3rem" },
+                  fontWeight: 600,
+                  mb: 4,
+                  fontSize: { xs: "2.5rem", md: "3.5rem" },
+                  fontFamily: "var(--font-playfair), serif",
                 }}
               >
                 Trusted by Real Clients
@@ -103,15 +102,16 @@ export default function TestimonialsSection() {
                 >
                   <Card
                     sx={{
-                      p: 4,
+                      p: 5,
                       height: "100%",
-                      borderRadius: 4,
-                      border: `1px solid ${muiTheme.palette.divider}`,
+                      borderRadius: "6px",
+                      bgcolor: "transparent",
+                      border: `1px solid rgba(255,255,255,0.1)`,
                       boxShadow: "none",
-                      transition: "all 0.3s ease",
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease",
                       "&:hover": {
-                        transform: "translateY(-5px)",
-                        borderColor: "secondary.main",
+                        transform: "translateY(-10px)",
+                        borderColor: "rgba(255,255,255,0.5)",
                       },
                     }}
                   >
@@ -136,7 +136,9 @@ export default function TestimonialsSection() {
                       variant="subtitle2"
                       component="p"
                       sx={{
-                        fontWeight: 700,
+                        fontWeight: 600,
+                        fontFamily: "var(--font-playfair), serif",
+                        fontSize: "1.25rem"
                       }}
                     >
                       {testimonial.name}
